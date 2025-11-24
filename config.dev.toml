@@ -1,0 +1,5 @@
+# Development configuration - overrides config.toml for local development
+# Use with: hugo server --config config.toml,config.dev.toml
+
+baseURL = 'http://localhost:1313/'
+

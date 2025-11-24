@@ -33,8 +33,15 @@ A static website built with Hugo and Tailwind CSS, hosted on GitHub Pages.
    ```
 
 3. **Run Hugo server (if Hugo is installed):**
+   
+   For local development, use the development config:
    ```powershell
-   hugo server
+   hugo server --config config.toml,config.dev.toml
+   ```
+   
+   Or use the baseURL flag:
+   ```powershell
+   hugo server --baseURL http://localhost:1313/
    ```
 
    Then visit `http://localhost:1313`
