@@ -1,7 +1,6 @@
 baseURL = 'https://karpe29.github.io/boai-website/'
 languageCode = 'en-us'
 title = 'BlinkofAI'
-theme = ''
 
 [params]
   description = 'BlinkofAI - AI-powered solutions'
