@@ -1,0 +1,178 @@
+<section class="relative min-h-screen flex items-center justify-center bg-primary overflow-hidden">
+    <!-- Background gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-primary via-primary-dark to-primary opacity-90"></div>
+    
+    <div class="container mx-auto px-6 py-20 relative z-10">
+        <div class="max-w-6xl mx-auto text-center">
+            <!-- Main headline with animated text -->
+            <div class="overflow-hidden w-full">
+                <h1 id="hero-headline" class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-6xl font-bold leading-tight mb-6">
+                    <span class="block">Personalized video ads</span>
+                    <span class="block mt-2">
+                        <span class="inline-block">that </span>
+                        <span class="relative inline-flex items-center">
+                            <span id="changing-text" class="text-accent inline-block min-w-[20px]"></span>
+                            <span class="w-1 h-10 md:h-14 lg:h-16 xl:h-20 bg-accent animate-pulse ml-1 inline-block"></span>
+                        </span>
+                    </span>
+                </h1>
+            </div>
+            
+            <!-- Sub headline -->
+            <p class="text-xl md:text-2xl font-thin text-gray-300 mt-3 max-w-3xl mx-auto leading-relaxed">
+                Your brief. Our research. Video ads personalized by persona and platform. Optimized in-campaign.
+            </p>
+            
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+                <a href="#contact" class="bg-white/10 backdrop-blur-xl border border-accent/50 hover:border-accent text-accent hover:text-accent-light px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-200 transform hover:scale-105 shadow-lg shadow-accent/30">
+                    Talk to Founder
+                </a>
+                <!-- <a href="#features" class="bg-transparent border-2 border-accent text-accent hover:bg-accent hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200">
+                    Learn More
+                </a> -->
+            </div>
+            
+            <!-- Portfolio Video Playlist -->
+            <div class="mt-16 max-w-2xl mx-auto relative">
+                <video 
+                    id="portfolio-video" 
+                    class="w-full rounded-lg shadow-2xl" 
+                    autoplay 
+                    muted 
+                    playsinline
+                >
+                    <source src="{{ "videos/portfolio1.mp4" | relURL }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                
+                <!-- Overlapping UI Images
+                <img src="{{ "images/UI1.png" | relURL }}" alt="UI Element 1" class="absolute -top-48 -right-48 w-72 h-auto z-10">
+                <img src="{{ "images/UI2.png" | relURL }}" alt="UI Element 2" class="absolute -bottom-48 -left-48 w-72 h-auto z-10"> -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-accent/10 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+    </div>
+</section>
+
+    <script>
+        // Portfolio video playlist
+        (function() {
+            const video = document.getElementById('portfolio-video');
+            if (!video) return;
+            
+            const videos = [
+                '{{ "videos/portfolio1.mp4" | relURL }}',
+                '{{ "videos/portfolio2.mp4" | relURL }}'
+            ];
+            let currentVideoIndex = 0;
+            
+            function playNextVideo() {
+                currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+                video.src = videos[currentVideoIndex];
+                video.load();
+                video.play().catch(e => {
+                    console.log('Autoplay prevented:', e);
+                });
+            }
+            
+            video.addEventListener('ended', playNextVideo);
+            
+            // Start playing the first video
+            video.play().catch(e => {
+                console.log('Autoplay prevented:', e);
+            });
+        })();
+        
+        // Text typing animation
+        (function() {
+        const phrases = ['scale', 'learn', 'deliver ROI'];
+        const changingTextElement = document.getElementById('changing-text');
+        
+        if (!changingTextElement) return;
+        
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typeSpeed = 100;
+        
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            let displayText = '';
+            
+            if (isDeleting) {
+                if (charIndex > 0) {
+                    displayText = currentPhrase.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    displayText = '';
+                }
+                typeSpeed = 50; // Deleting speed
+            } else {
+                displayText = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                typeSpeed = 100; // Typing speed
+            }
+            
+            // Set text, use &nbsp if displayText is empty to maintain layout
+            changingTextElement.textContent = displayText || '\u00A0';
+            
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                typeSpeed = 2000; // Pause at end
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                charIndex = 0;
+                typeSpeed = 500; // Pause before new word
+            }
+            
+            setTimeout(type, typeSpeed);
+        }
+        
+        // Start animation
+        setTimeout(type, 1000);
+    })();
+</script>
+
+<style>
+    @keyframes pulse {
+        0%, 100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.5;
+        }
+    }
+    
+    .delay-1000 {
+        animation-delay: 1s;
+    }
+    
+    /* Ensure hero text fits without scrollbar */
+    #hero-headline {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+    
+    /* Hide video controls */
+    #portfolio-video {
+        pointer-events: none;
+    }
+    
+    #portfolio-video::-webkit-media-controls {
+        display: none !important;
+    }
+    
+    #portfolio-video::-webkit-media-controls-enclosure {
+        display: none !important;
+    }
+</style>
+
+

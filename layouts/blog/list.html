@@ -1,0 +1,96 @@
+{{ define "main" }}
+<section class="py-20 bg-primary min-h-screen">
+    <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+            <!-- Page Header -->
+            <div class="text-center mb-16">
+                <h1 class="text-5xl font-bold text-white mb-4">Blog</h1>
+                <p class="text-gray-400 text-xl">Insights, tips, and updates from our team</p>
+            </div>
+            
+            <!-- Blog Posts List -->
+            <div class="space-y-8">
+                {{ range .Pages }}
+                <article class="bg-primary-dark border border-primary-light rounded-lg overflow-hidden hover:border-accent transition-all duration-300 group">
+                    <a href="{{ .Permalink }}" class="block md:flex">
+                        <!-- Featured Image -->
+                        <div class="md:w-1/3 aspect-video md:aspect-auto bg-primary-light overflow-hidden">
+                            {{ if .Params.featured_image }}
+                            <img src="{{ .Params.featured_image }}" alt="{{ .Title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            {{ else }}
+                            <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-accent/20 to-primary">
+                                <svg class="w-16 h-16 text-accent/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
+                                </svg>
+                            </div>
+                            {{ end }}
+                        </div>
+                        
+                        <!-- Content -->
+                        <div class="md:w-2/3 p-6">
+                            <div class="flex items-center gap-2 text-sm text-gray-400 mb-3">
+                                {{ if .Params.author }}
+                                <span>{{ .Params.author }}</span>
+                                {{ end }}
+                                {{ if .Date }}
+                                <span>•</span>
+                                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+                                {{ end }}
+                            </div>
+                            
+                            <h2 class="text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors duration-300">
+                                {{ .Title }}
+                            </h2>
+                            
+                            <p class="text-gray-400 leading-relaxed mb-4">
+                                {{ if .Summary }}
+                                    {{ .Summary | truncate 200 }}
+                                {{ else }}
+                                    {{ .Content | plainify | truncate 200 }}
+                                {{ end }}
+                            </p>
+                            
+                            <div class="flex items-center text-accent text-sm font-semibold">
+                                Read more
+                                <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                {{ end }}
+            </div>
+            
+            <!-- Pagination (if needed) -->
+            {{ if gt .Paginator.TotalPages 1 }}
+            <div class="mt-12 flex justify-center">
+                <nav class="flex gap-2">
+                    {{ if .Paginator.HasPrev }}
+                    <a href="{{ .Paginator.Prev.URL }}" class="px-4 py-2 bg-primary-dark border border-primary-light text-white rounded-lg hover:border-accent transition-colors">
+                        Previous
+                    </a>
+                    {{ end }}
+                    
+                    {{ range .Paginator.Pagers }}
+                    <a href="{{ .URL }}" class="px-4 py-2 bg-primary-dark border border-primary-light text-white rounded-lg hover:border-accent transition-colors {{ if eq . $ }}border-accent{{ end }}">
+                        {{ .PageNumber }}
+                    </a>
+                    {{ end }}
+                    
+                    {{ if .Paginator.HasNext }}
+                    <a href="{{ .Paginator.Next.URL }}" class="px-4 py-2 bg-primary-dark border border-primary-light text-white rounded-lg hover:border-accent transition-colors">
+                        Next
+                    </a>
+                    {{ end }}
+                </nav>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}
+
+
+
+

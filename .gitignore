@@ -1,0 +1,28 @@
+# Hugo
+public/
+resources/
+.hugo_build.lock
+
+# Node
+node_modules/
+package-lock.json
+yarn.lock
+
+# Tailwind
+static/css/style.css
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+
+
+
+

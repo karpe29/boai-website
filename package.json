@@ -1,0 +1,12 @@
+{
+  "name": "blinkofai-website",
+  "version": "1.0.0",
+  "description": "BlinkofAI website with Hugo and Tailwind CSS",
+  "scripts": {
+    "build:css": "tailwindcss -i ./static/css/input.css -o ./static/css/style.css --minify",
+    "watch:css": "tailwindcss -i ./static/css/input.css -o ./static/css/style.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}
