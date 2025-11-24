@@ -1,4 +1,4 @@
-baseURL = 'https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/'
+baseURL = 'https://karpe29.github.io/boai-website/'
 languageCode = 'en-us'
 title = 'BlinkofAI'
 theme = ''
