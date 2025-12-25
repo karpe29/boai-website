@@ -1,56 +1,44 @@
-{{/* BrandDNA Module */}}
+{{/* ScriptLab Module - Live Now */}}
 {{ partial "module-section.html" (dict 
-        "title" "BrandDNA"
-        "subtitle" "Understand and maintain your brand's unique identity across all creatives"
-        "tabs" (slice
-        (dict "title" "Brand Analysis" "description" "Analyze and understand your brand's unique DNA to create consistent, on-brand creatives." "icon" "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" "start" 0 "end" 4)
-        (dict "title" "Consistency Check" "description" "Ensure all creatives maintain brand consistency across platforms and campaigns." "icon" "M12 4v16m8-8H4" "start" 4 "end" 8)
-    )
-    "videoSrc" "videos/demoVideo.mp4"
-    "moduleId" "branddna"
-    "bgClass" "bg-primary"
-    "bgClassAlt" "bg-primary-dark"
-) }}
-
-{{/* Script Module */}}
-{{ partial "module-section.html" (dict 
-    "title" "Script Module"
-    "subtitle" "Generate compelling scripts that convert with AI-powered writing"
-    "tryButton" (dict "text" "Try Now" "url" "#contact")
+    "title" "ScriptLab"
+    "subtitle" "Creative Strategy for Winning Scripts"
+    "badge" "Live Now"
+    "tryButton" (dict "text" "Generate your winning Script" "url" "#contact")
     "tabs" (slice
-        (dict "title" "Script Generation" "description" "Generate compelling scripts that convert. AI-powered script writing that understands your brand voice." "icon" "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" "start" 0 "end" 4)
-        (dict "title" "Voice Optimization" "description" "Optimize scripts for different audiences while maintaining your unique brand voice." "icon" "M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" "start" 4 "end" 8)
-        (dict "title" "A/B Testing" "description" "Test multiple script variations to find what resonates best with your audience." "icon" "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" "start" 8 "end" 12)
+        (dict "title" "Brand Research" "description" "Analyze past winners, competitors, and audiences. Extract brand voice, tone, and messaging style from your website, social media, and past campaigns." "icon" "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" "start" 0 "end" 3)
+        (dict "title" "Competitor Research" "description" "Research competitor video ads from Meta Ad Library. Analyze what works and identify opportunities for differentiation." "icon" "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" "start" 3 "end" 6)
+        (dict "title" "Script Generation" "description" "Generate on-brand, compliance-ready scripts with hooks and CTA banks. Research-backed scripts that convert." "icon" "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" "start" 6 "end" 9)
     )
-    "videoSrc" "videos/demoVideo.mp4"
-    "moduleId" "script"
+    "videoSrc" "/videos/demoVideo.mp4"
+    "moduleId" "scriptlab"
     "bgClass" "bg-primary-dark"
     "bgClassAlt" "bg-primary"
 ) }}
 
-{{/* VisualLab Module */}}
+{{/* VisualStudio Module */}}
 {{ partial "module-section.html" (dict 
-        "title" "VisualLab"
-        "subtitle" "Create stunning visuals at scale while maintaining brand consistency"
+        "title" "VisualStudio"
+        "subtitle" "Visual assets preparation - Select from your brand library or generate on-brand, on-script visuals"
         "tabs" (slice
-        (dict "title" "Visual Generation" "description" "Create stunning visuals at scale. AI-powered visual generation that maintains brand consistency." "icon" "M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" "start" 0 "end" 5)
-        (dict "title" "Style Matching" "description" "Automatically match visual styles across all your creatives for cohesive brand presentation." "icon" "M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" "start" 5 "end" 10)
+        (dict "title" "Select from Library" "description" "Choose clips from your existing brand visuals library. Maintain consistency with your established visual identity." "icon" "M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" "start" 0 "end" 4)
+        (dict "title" "Generate Visuals" "description" "Create on-brand, on-script visuals for your master video ad. From storyboard to image prompt to photo to video - all aligned with your brand identity." "icon" "M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" "start" 4 "end" 8)
     )
-    "videoSrc" "videos/demoVideo.mp4"
-    "moduleId" "visuallab"
+    "videoSrc" "/videos/demoVideo.mp4"
+    "moduleId" "visualstudio"
     "bgClass" "bg-primary"
     "bgClassAlt" "bg-primary-dark"
 ) }}
 
-{{/* MasterCut Module */}}
+{{/* AdLab Module */}}
 {{ partial "module-section.html" (dict 
-        "title" "MasterCut"
-        "subtitle" "Professional video editing at scale with AI-powered precision"
+        "title" "AdLab"
+        "subtitle" "Master video creation - Build on-brand master video ad, split into modular blocks for variants, verify compliance"
         "tabs" (slice
-        (dict "title" "Smart Editing" "description" "Professional video editing at scale. AI-powered cutting and editing for perfect pacing and flow." "icon" "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" "start" 0 "end" 6)
+        (dict "title" "Build Master Video" "description" "Assemble on-brand master video and split into modular blocks for variants. Professional timeline editing with track and VO." "icon" "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" "start" 0 "end" 4)
+        (dict "title" "Compliance Check" "description" "Verify brand guidelines, voice, tone, visuals, and legal compliance. Ensures nothing slips through the cracks before launch." "icon" "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" "start" 4 "end" 8)
     )
-    "videoSrc" "videos/demoVideo.mp4"
-    "moduleId" "mastercut"
+    "videoSrc" "/videos/demoVideo.mp4"
+    "moduleId" "adlab"
     "bgClass" "bg-primary-dark"
     "bgClassAlt" "bg-primary"
 ) }}
@@ -58,16 +46,30 @@
 {{/* VariantEngine Module */}}
 {{ partial "module-section.html" (dict 
         "title" "VariantEngine"
-        "subtitle" "Generate unlimited creative variants and scale what works"
+        "subtitle" "Personalized video variants - Generate persona and platform variants, enable pre-launch testing, and refresh fatigued ads"
         "tabs" (slice
-        (dict "title" "Variant Generation" "description" "Generate unlimited creative variants automatically. Test more, learn faster, and scale what works." "icon" "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" "start" 0 "end" 4)
-        (dict "title" "Performance Tracking" "description" "Track which variants perform best and automatically scale winning creatives." "icon" "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" "start" 4 "end" 8)
-        (dict "title" "Auto-Scaling" "description" "Automatically scale high-performing variants across all your ad platforms." "icon" "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" "start" 8 "end" 12)
+        (dict "title" "Personalize Video Ads" "description" "Generate persona and platform variants by duration, language, and ratio. Omni-channel ready video ads personalized for each audience." "icon" "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" "start" 0 "end" 4)
+        (dict "title" "A/B Testing Options" "description" "Create hook and CTA variant options to A/B test before launch. Test more variations, learn faster, and scale what works." "icon" "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" "start" 4 "end" 8)
+        (dict "title" "Refresh Fatigued Ads" "description" "Analyze performance data and refresh video ads to re-engage fatigued audiences. Optimize in-campaign based on real performance metrics." "icon" "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" "start" 8 "end" 12)
     )
-    "videoSrc" "videos/demoVideo.mp4"
+    "videoSrc" "/videos/demoVideo.mp4"
     "moduleId" "variantengine"
     "bgClass" "bg-primary"
     "bgClassAlt" "bg-primary-dark"
+) }}
+
+{{/* BrandDNA Module */}}
+{{ partial "module-section.html" (dict 
+        "title" "BrandDNA"
+        "subtitle" "Stay On-Brand. Stay Compliant. Always."
+        "tabs" (slice
+        (dict "title" "On-Brand" "description" "Extracted once, applied everywhere. We extract voice, tone, messaging style, visual identity (colors, fonts, logos), and brand story and positioning." "icon" "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" "start" 0 "end" 4)
+        (dict "title" "Always Compliant" "description" "Catches compliance risks before launch. Enforces substantiation requirements for claims, prohibited terms and safe language rules, industry-specific regulatory watchouts, and hook/CTA restrictions." "icon" "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" "start" 4 "end" 8)
+    )
+    "videoSrc" "/videos/demoVideo.mp4"
+    "moduleId" "branddna"
+    "bgClass" "bg-primary-dark"
+    "bgClassAlt" "bg-primary"
 ) }}
 
 <script>

@@ -1,0 +1,106 @@
+<section class="py-32 bg-primary-dark">
+    <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">FAQs</h2>
+            </div>
+
+            <div class="space-y-6">
+                <!-- FAQ 1 -->
+                <div class="bg-primary border border-primary-light rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-primary-light transition-colors duration-200" onclick="toggleFAQ(this)">
+                        <span class="text-white font-semibold text-lg">What does BlinkofAI do and who is it for?</span>
+                        <svg class="faq-icon w-6 h-6 text-accent transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 text-gray-300">
+                        <p>BlinkofAI creates personalized video ads that deliver ROI for marketers. BlinkofAI analyses past winners, competitors, and audiences to generate winning ad scripts, then build video ads personalized by persona and platform. ScriptLab is live now. Full video creation modules launching soon.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-primary border border-primary-light rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-primary-light transition-colors duration-200" onclick="toggleFAQ(this)">
+                        <span class="text-white font-semibold text-lg">How quickly can I get started?</span>
+                        <svg class="faq-icon w-6 h-6 text-accent transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 text-gray-300">
+                        <p>Sign up and get your first winning script in under 5 minutes. No credit card required. Start with 2 free scripts per month. Upgrade anytime for more scripts or full video ad creation.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-primary border border-primary-light rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-primary-light transition-colors duration-200" onclick="toggleFAQ(this)">
+                        <span class="text-white font-semibold text-lg">When can I get full video ads?</span>
+                        <svg class="faq-icon w-6 h-6 text-accent transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 text-gray-300">
+                        <p>ScriptLab is live now. Create winning scripts instantly. Our video creation modules (VisualStudio, AdLab, VariantEngine) launch soon. Until then, we'll step in to produce your video ads 3× cheaper and 8× faster than agencies. Share your script and we'll handle the rest.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-primary border border-primary-light rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-primary-light transition-colors duration-200" onclick="toggleFAQ(this)">
+                        <span class="text-white font-semibold text-lg">What are the pricing options?</span>
+                        <svg class="faq-icon w-6 h-6 text-accent transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 text-gray-300">
+                        <p>Start free with 2 scripts per month. Need more? Pay as you go for additional scripts. Want end-to-end video ad creation (brief → personalized variants)? We offer campaign packages. For custom volume or enterprise needs, contact our team for tailored pricing. All plans include on-brand, compliance-checked output.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="bg-primary border border-primary-light rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-primary-light transition-colors duration-200" onclick="toggleFAQ(this)">
+                        <span class="text-white font-semibold text-lg">How do you ensure quality and compliance?</span>
+                        <svg class="faq-icon w-6 h-6 text-accent transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 text-gray-300">
+                        <p>Every script and video ad goes through BrandDNA, our system that extracts your brand voice, tone, visual identity, and compliance rules. We enforce regulatory requirements, prohibited terms, and content guardrails automatically. Over 100 checkpoints verify quality before output. Result: Publish-ready, on-brand, compliant ads every time.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nudge Line -->
+            <div class="mt-12 text-center">
+                <p class="text-gray-400 text-lg">With BlinkofAI you are publish-ready for Meta / Google / CTV /...</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function toggleFAQ(button) {
+    const answer = button.nextElementSibling;
+    const icon = button.querySelector('.faq-icon');
+    const isOpen = !answer.classList.contains('hidden');
+    
+    // Close all FAQs
+    document.querySelectorAll('.faq-answer').forEach(ans => {
+        ans.classList.add('hidden');
+    });
+    document.querySelectorAll('.faq-icon').forEach(ic => {
+        ic.classList.remove('rotate-180');
+    });
+    
+    // Toggle current FAQ
+    if (isOpen) {
+        answer.classList.add('hidden');
+    } else {
+        answer.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+    }
+}
+</script>
+

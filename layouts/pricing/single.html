@@ -4,408 +4,387 @@
         <div class="max-w-7xl mx-auto">
             <!-- Header -->
             <div class="text-center mb-16">
-                <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">Simple Pricing.</h1>
-                <p class="text-gray-400 text-xl">Choose the plan that's right for the scale and needs of your growth</p>
+                <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">Plans that scale with your creative needs</h1>
             </div>
 
-            <!-- Pricing Toggle (if needed) -->
-            <div class="flex justify-center mb-12">
-                <div class="inline-flex items-center bg-primary-dark border border-primary-light rounded-lg p-1">
-                    <span class="px-6 py-2 text-white text-sm font-medium">Ad Spend - Annual</span>
+            <!-- Pricing Tiers -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <!-- ScriptLab (Free) -->
+                <div class="bg-primary-dark border-2 border-accent rounded-2xl p-6 hover:border-accent-light transition-all duration-300 flex flex-col">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">ScriptLab</h3>
+                        <div class="text-accent font-bold text-4xl mb-1">$0</div>
+                        <p class="text-accent text-sm font-semibold">Free Forever</p>
+                    </div>
+                    <ul class="space-y-3 mb-6 text-sm">
+                        <li class="text-gray-300">1 Campaign per month</li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-accent mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">Up to 3 Scripts</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-accent mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">Research backed Creative Strategy</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-accent mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">On-brand/compliance checked Scripts</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-accent mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">Hook & CTA bank</span>
+                        </li>
+                    </ul>
+                    <div class="mb-4 text-xs text-gray-400 space-y-1">
+                        <p>Unlimited campaigns & scripts from $5/campaign</p>
+                        <p>Video Production → Pay As You Go</p>
+                    </div>
+                    <div class="mb-4 text-xs text-gray-400">
+                        <p><strong class="text-gray-300">Support:</strong> Email, Chat</p>
+                        <p><strong class="text-gray-300">Best for:</strong> exploration, testing</p>
+                    </div>
+                    <div class="mt-auto">
+                        <a href="#contact" class="block w-full text-center bg-accent hover:bg-accent-light text-white px-4 py-3 rounded-lg font-semibold text-sm transition-all duration-200">
+                            Start Free (No Credit Card required)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Starter -->
+                <div class="bg-primary-dark border border-primary-light rounded-2xl p-6 hover:border-accent transition-all duration-300 flex flex-col">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Starter</h3>
+                        <div class="text-accent font-bold text-3xl mb-1">from $500</div>
+                        <p class="text-gray-400 text-xs">per month</p>
+                        <p class="text-accent text-xs font-semibold mt-1">save 5% annually</p>
+                    </div>
+                    <ul class="space-y-3 mb-6 text-sm">
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-accent mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">Unlimited Scripts</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-accent mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">3 Master Video Ads (Basic types)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-accent mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">36 Variants (mix of Durations, Aspect Ratios, Hooks, CTAs for A/B testing)</span>
+                        </li>
+                    </ul>
+                    <div class="mb-4 text-xs text-gray-400">
+                        <p><strong class="text-gray-300">Service:</strong> 2-3 day turnaround</p>
+                        <p><strong class="text-gray-300">Support:</strong> Email, Chat</p>
+                        <p><strong class="text-gray-300">Best for:</strong> 1 small campaign a month</p>
+                    </div>
+                    <div class="mt-auto">
+                        <a href="#contact" class="block w-full text-center bg-accent hover:bg-accent-light text-white px-4 py-3 rounded-lg font-semibold text-sm transition-all duration-200">
+                            Choose Plan (Unused allowance rolls over)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Pro (Most Popular) -->
+                <div class="bg-primary-dark border-2 border-accent rounded-2xl p-6 hover:border-accent-light transition-all duration-300 relative flex flex-col">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="inline-flex items-center px-4 py-1 rounded-full text-xs font-bold bg-accent text-white">
+                            Most Popular
+                        </span>
+                    </div>
+                    <div class="text-center mb-6 mt-2">
+                        <h3 class="text-2xl font-bold text-white mb-2">Pro</h3>
+                        <div class="text-accent font-bold text-3xl mb-1">from $900</div>
+                        <p class="text-gray-400 text-xs">per month</p>
+                        <p class="text-accent text-xs font-semibold mt-1">save 10% annually</p>
+                    </div>
+                    <ul class="space-y-3 mb-6 text-sm">
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-accent mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">Unlimited Scripts</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-accent mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">6 Master Video Ads (Basic & Advanced Types)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-accent mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">72 Variants (mix of Durations, Aspect Ratios, Hooks, CTAs for A/B testing)</span>
+                        </li>
+                    </ul>
+                    <div class="mb-4 text-xs text-gray-400">
+                        <p><strong class="text-gray-300">Service:</strong> 2-3 day turnaround</p>
+                        <p><strong class="text-gray-300">Support:</strong> Priority Support (Email, Chat)</p>
+                        <p><strong class="text-gray-300">Monthly Strategy Call</strong></p>
+                        <p><strong class="text-gray-300">Best for:</strong> 1-2 campaigns a month</p>
+                    </div>
+                    <div class="mt-auto">
+                        <a href="#contact" class="block w-full text-center bg-accent hover:bg-accent-light text-white px-4 py-3 rounded-lg font-semibold text-sm transition-all duration-200">
+                            Choose Plan (Unused allowance rolls over)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="bg-primary-dark border border-primary-light rounded-2xl p-6 hover:border-accent transition-all duration-300 flex flex-col">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Enterprise</h3>
+                        <div class="text-accent font-bold text-3xl mb-1">from $2,000</div>
+                        <p class="text-gray-400 text-xs">per month</p>
+                        <p class="text-accent text-xs font-semibold mt-1">save 15% off annually</p>
+                    </div>
+                    <ul class="space-y-3 mb-6 text-sm">
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-accent mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">Unlimited Scripts</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-accent mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">12+ Video Ads (Basic & Advanced Types)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-accent mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">200+ Variants (mix of Durations, Aspect Ratios, Hooks, CTAs for A/B testing, Language options)</span>
+                        </li>
+                    </ul>
+                    <div class="mb-4 text-xs text-gray-400">
+                        <p><strong class="text-gray-300">Service:</strong> Priority turnaround</p>
+                        <p><strong class="text-gray-300">Support:</strong> Priority Support (Email, Chat)</p>
+                        <p><strong class="text-gray-300">Weekly Strategy Call</strong></p>
+                        <p><strong class="text-gray-300">Dedicated Resources:</strong> Account Manager, Editor, Designer</p>
+                        <p><strong class="text-gray-300">Best for:</strong> high volume, agencies</p>
+                    </div>
+                    <div class="mt-auto">
+                        <a href="#contact" class="block w-full text-center bg-accent hover:bg-accent-light text-white px-4 py-3 rounded-lg font-semibold text-sm transition-all duration-200">
+                            Contact Sales
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <!-- Pricing Table -->
-            <div class="overflow-x-auto -mx-6 px-6">
-                <table class="w-full border-collapse min-w-[800px]">
-                    <thead>
-                        <tr class="border-b-2 border-primary-light">
-                            <th class="text-left py-4 px-6 text-gray-400 font-semibold text-sm uppercase">Platforms Supported</th>
-                            <th class="text-center py-4 px-6">
-                                <div class="text-white font-bold text-2xl mb-2">Starter</div>
-                                <div class="text-accent font-bold text-3xl mb-1">$999<span class="text-lg text-gray-400">/mo</span></div>
-                                <div class="text-gray-400 text-sm mb-4">Per Integration<br>Billed Annually</div>
-                                <a href="#contact" class="inline-block bg-accent hover:bg-accent-light text-white px-6 py-2 rounded-lg font-semibold text-sm transition-colors">
-                                    Talk to founders
-                                </a>
-                                <div class="text-gray-400 text-sm mt-4">Less than $1M</div>
-                            </th>
-                            <th class="text-center py-4 px-6 border-l border-r border-primary-light">
-                                <div class="text-white font-bold text-2xl mb-2">Professional</div>
-                                <div class="text-accent font-bold text-3xl mb-1">Custom</div>
-                                <div class="text-gray-400 text-sm mb-4">Professional pricing flexes with<br>your team's scale and scope</div>
-                                <a href="#contact" class="inline-block bg-accent hover:bg-accent-light text-white px-6 py-2 rounded-lg font-semibold text-sm transition-colors">
-                                    Talk to founders
-                                </a>
-                                <div class="text-gray-400 text-sm mt-4">$1M - $10M</div>
-                            </th>
-                            <th class="text-center py-4 px-6">
-                                <div class="text-white font-bold text-2xl mb-2">Enterprise</div>
-                                <div class="text-accent font-bold text-3xl mb-1">Custom</div>
-                                <div class="text-gray-400 text-sm mb-4">Every Enterprise is unique and<br>we like to tailor the pricing<br>to your needs</div>
-                                <a href="#contact" class="inline-block bg-accent hover:bg-accent-light text-white px-6 py-2 rounded-lg font-semibold text-sm transition-colors">
-                                    Talk to founders
-                                </a>
-                                <div class="text-gray-400 text-sm mt-4">More than $10M</div>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Platforms Supported -->
-                        <tr class="border-b border-primary-light">
-                            <td class="py-4 px-6 text-white font-semibold">Platforms Supported</td>
-                            <td class="py-4 px-6 text-center text-gray-400 text-sm">
-                                Meta, TikTok, Google, Pinterest,<br>Snapchat, Applovin, Inmobi,<br>TradeDesk, Criteo, Atari
-                            </td>
-                            <td class="py-4 px-6 text-center text-gray-400 text-sm border-l border-r border-primary-light">
-                                Meta, TikTok, Google, Pinterest,<br>Snapchat, Applovin, Inmobi,<br>TradeDesk, Criteo, Atari
-                            </td>
-                            <td class="py-4 px-6 text-center text-gray-400 text-sm">
-                                All Ad Platforms<br>1st Party Source of Truth<br>MMPs, Attribution Models
-                            </td>
-                        </tr>
+            <!-- Definitions and All Plans Include -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+                <!-- Definitions -->
+                <div class="bg-primary-dark border border-primary-light rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold text-white mb-6">Definitions</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-white font-semibold mb-2">Master Video Ad</h4>
+                            <p class="text-gray-400 text-sm">Base video created from your script.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold mb-2">Adaptations</h4>
+                            <p class="text-gray-400 text-sm">Variations by duration, ratio, language.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold mb-2">Variations</h4>
+                            <p class="text-gray-400 text-sm">Hook & CTA variations for A/B testing.</p>
+                        </div>
+                    </div>
+                </div>
 
-                        <!-- Workflows Section Header -->
-                        <tr class="border-b-2 border-primary-light">
-                            <td class="py-4 px-6 text-white font-semibold text-lg" colspan="4">Workflows</td>
-                        </tr>
-
-                        <!-- Creative Insights -->
-                        <tr class="border-b border-primary-light">
-                            <td class="py-4 px-6 text-gray-400 pl-8">Creative Insights</td>
-                            <td class="py-4 px-6 text-center">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                            <td class="py-4 px-6 text-center border-l border-r border-primary-light">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                            <td class="py-4 px-6 text-center">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                        </tr>
-
-                        <!-- Audience Insights -->
-                        <tr class="border-b border-primary-light">
-                            <td class="py-4 px-6 text-gray-400 pl-8">Audience Insights</td>
-                            <td class="py-4 px-6 text-center">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                            <td class="py-4 px-6 text-center border-l border-r border-primary-light">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                            <td class="py-4 px-6 text-center">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                        </tr>
-
-                        <!-- Competitor Insights -->
-                        <tr class="border-b border-primary-light">
-                            <td class="py-4 px-6 text-gray-400 pl-8">Competitor Insights</td>
-                            <td class="py-4 px-6 text-center">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                            <td class="py-4 px-6 text-center border-l border-r border-primary-light">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                            <td class="py-4 px-6 text-center">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                        </tr>
-
-                        <!-- Creative Ideation -->
-                        <tr class="border-b border-primary-light">
-                            <td class="py-4 px-6 text-gray-400 pl-8">Creative Ideation</td>
-                            <td class="py-4 px-6 text-center">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                            <td class="py-4 px-6 text-center border-l border-r border-primary-light">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                            <td class="py-4 px-6 text-center">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                        </tr>
-
-                        <!-- Creative Generation -->
-                        <tr class="border-b border-primary-light">
-                            <td class="py-4 px-6 text-gray-400 pl-8">Creative Generation</td>
-                            <td class="py-4 px-6 text-center text-gray-500">-</td>
-                            <td class="py-4 px-6 text-center border-l border-r border-primary-light">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                            <td class="py-4 px-6 text-center">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                        </tr>
-
-                        <!-- Pre-Screening -->
-                        <tr class="border-b border-primary-light">
-                            <td class="py-4 px-6 text-gray-400 pl-8">Pre-Screening</td>
-                            <td class="py-4 px-6 text-center text-gray-500">-</td>
-                            <td class="py-4 px-6 text-center border-l border-r border-primary-light">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                            <td class="py-4 px-6 text-center">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                        </tr>
-
-                        <!-- Custom Workflows -->
-                        <tr class="border-b border-primary-light">
-                            <td class="py-4 px-6 text-gray-400 pl-8">Custom Workflows</td>
-                            <td class="py-4 px-6 text-center text-gray-500">-</td>
-                            <td class="py-4 px-6 text-center border-l border-r border-primary-light text-gray-500">-</td>
-                            <td class="py-4 px-6 text-center">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                        </tr>
-
-                        <!-- Copilot -->
-                        <tr class="border-b-2 border-primary-light">
-                            <td class="py-4 px-6 text-gray-400 pl-8">Copilot</td>
-                            <td class="py-4 px-6 text-center">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                            <td class="py-4 px-6 text-center border-l border-r border-primary-light">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                            <td class="py-4 px-6 text-center">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                        </tr>
-
-                        <!-- Setup & Integrations Section Header -->
-                        <tr class="border-b-2 border-primary-light">
-                            <td class="py-4 px-6 text-white font-semibold text-lg" colspan="4">Setup & Integrations</td>
-                        </tr>
-
-                        <!-- Export Options -->
-                        <tr class="border-b border-primary-light">
-                            <td class="py-4 px-6 text-gray-400 pl-8">Export Options</td>
-                            <td class="py-4 px-6 text-center">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                            <td class="py-4 px-6 text-center border-l border-r border-primary-light text-gray-500">-</td>
-                            <td class="py-4 px-6 text-center text-gray-500">-</td>
-                        </tr>
-
-                        <!-- White Labeled Product -->
-                        <tr class="border-b border-primary-light">
-                            <td class="py-4 px-6 text-gray-400 pl-8">White Labeled Product</td>
-                            <td class="py-4 px-6 text-center text-gray-500">-</td>
-                            <td class="py-4 px-6 text-center border-l border-r border-primary-light text-gray-500">-</td>
-                            <td class="py-4 px-6 text-center text-gray-500">-</td>
-                        </tr>
-
-                        <!-- On-premise Deployment -->
-                        <tr class="border-b-2 border-primary-light">
-                            <td class="py-4 px-6 text-gray-400 pl-8">On-premise Deployment</td>
-                            <td class="py-4 px-6 text-center text-gray-500">-</td>
-                            <td class="py-4 px-6 text-center border-l border-r border-primary-light text-gray-500">-</td>
-                            <td class="py-4 px-6 text-center text-gray-500">-</td>
-                        </tr>
-
-                        <!-- Security Section Header -->
-                        <tr class="border-b-2 border-primary-light">
-                            <td class="py-4 px-6 text-white font-semibold text-lg" colspan="4">Security</td>
-                        </tr>
-
-                        <!-- SOC 2 Compliant Execution -->
-                        <tr class="border-b border-primary-light">
-                            <td class="py-4 px-6 text-gray-400 pl-8">SOC 2 Compliant Execution</td>
-                            <td class="py-4 px-6 text-center">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                            <td class="py-4 px-6 text-center border-l border-r border-primary-light">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                            <td class="py-4 px-6 text-center">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                        </tr>
-
-                        <!-- Single-Sign On -->
-                        <tr class="border-b border-primary-light">
-                            <td class="py-4 px-6 text-gray-400 pl-8">Single-Sign On</td>
-                            <td class="py-4 px-6 text-center text-gray-500">-</td>
-                            <td class="py-4 px-6 text-center border-l border-r border-primary-light">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                            <td class="py-4 px-6 text-center">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                        </tr>
-
-                        <!-- Admin Roles -->
-                        <tr class="border-b-2 border-primary-light">
-                            <td class="py-4 px-6 text-gray-400 pl-8">Admin Roles</td>
-                            <td class="py-4 px-6 text-center text-gray-500">-</td>
-                            <td class="py-4 px-6 text-center border-l border-r border-primary-light">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                            <td class="py-4 px-6 text-center">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                        </tr>
-
-                        <!-- LLMs Section Header -->
-                        <tr class="border-b-2 border-primary-light">
-                            <td class="py-4 px-6 text-white font-semibold text-lg" colspan="4">LLMs</td>
-                        </tr>
-
-                        <!-- Choice of LLMs -->
-                        <tr class="border-b border-primary-light">
-                            <td class="py-4 px-6 text-gray-400 pl-8">Choice of LLMs</td>
-                            <td class="py-4 px-6 text-center text-gray-400 text-sm">
-                                GPT, Claude, Llama, Gemini
-                            </td>
-                            <td class="py-4 px-6 text-center border-l border-r border-primary-light text-gray-400 text-sm">
-                                + Privately-hosted LLMs
-                            </td>
-                            <td class="py-4 px-6 text-center text-gray-400 text-sm">
-                                Privately-hosted fine-tuned LLMs
-                            </td>
-                        </tr>
-
-                        <!-- Custom Instructions -->
-                        <tr class="border-b border-primary-light">
-                            <td class="py-4 px-6 text-gray-400 pl-8">Custom Instructions</td>
-                            <td class="py-4 px-6 text-center text-gray-500">-</td>
-                            <td class="py-4 px-6 text-center border-l border-r border-primary-light">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                            <td class="py-4 px-6 text-center">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                        </tr>
-
-                        <!-- Fine-tuning based on 1st party data -->
-                        <tr class="border-b border-primary-light">
-                            <td class="py-4 px-6 text-gray-400 pl-8">Fine-tuning based on 1st party data</td>
-                            <td class="py-4 px-6 text-center text-gray-500">-</td>
-                            <td class="py-4 px-6 text-center border-l border-r border-primary-light">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                            <td class="py-4 px-6 text-center">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                        </tr>
-
-                        <!-- Client-specific Contextual Training -->
-                        <tr class="border-b-2 border-primary-light">
-                            <td class="py-4 px-6 text-gray-400 pl-8">Client-specific Contextual Training</td>
-                            <td class="py-4 px-6 text-center text-gray-500">-</td>
-                            <td class="py-4 px-6 text-center border-l border-r border-primary-light text-gray-500">-</td>
-                            <td class="py-4 px-6 text-center">
-                                <svg class="w-6 h-6 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <!-- All Plans Include -->
+                <div class="bg-primary-dark border border-primary-light rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold text-white mb-6">All Plans Include</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-accent mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">On-brand visuals</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-accent mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">Compliance-checked output (BrandDNA system)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-accent mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">Licensed music & AI voiceover</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-accent mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">Text overlays optimized for performance</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-accent mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">100+ quality checkpoints before delivery</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <!-- FAQs Section -->
-            <div class="mt-20">
-                <h2 class="text-4xl font-bold text-white text-center mb-12">We're here to answer all your questions.</h2>
-                
-                <div class="max-w-3xl mx-auto space-y-6">
-                    <div class="bg-primary-dark border border-primary-light rounded-lg p-6">
-                        <h3 class="text-xl font-bold text-white mb-3">Can BlinkofAI's output be trusted to take actions?</h3>
-                        <p class="text-gray-400 leading-relaxed">
-                            Absolutely. We have put all the checks in place to make sure you only get accurate information. BlinkofAI is being reliably used by some of the largest performance marketing teams across the world for ad accounts with 7-8 figure spends. That said, it is early days for LLMs and if you do notice an error, please bring it to us.
-                        </p>
+            <!-- Video Production Pricing Guide -->
+            <div class="bg-primary-dark border border-primary-light rounded-2xl p-8 mb-16">
+                <div class="text-center mb-8">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Video Production Pricing Guide</h2>
+                    <p class="text-gray-300 text-lg mb-2">Subscription plans include these at no-extra cost.</p>
+                    <p class="text-gray-300 text-lg">Pay-as-you-go clients pay per video and per variant</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <!-- Master Video Ad: Basic -->
+                    <div class="bg-primary border border-primary-light rounded-xl p-6">
+                        <div class="text-center mb-4">
+                            <h3 class="text-xl font-bold text-white mb-2">Master Video Ad: Basic</h3>
+                            <div class="text-accent font-bold text-2xl">$120 per Video Ad</div>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="text-white font-semibold text-sm mb-1">Supers-Driven</h4>
+                                <p class="text-gray-400 text-xs">Text overlays drive the message with music and on-brand visuals. No voiceover.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-sm mb-1">VO-Driven</h4>
+                                <p class="text-gray-400 text-xs">Professional voiceover narrates over on-brand visuals and text overlays.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-sm mb-1">Character-Driven</h4>
+                                <p class="text-gray-400 text-xs">Scripts feature characters with emotions and roles. No lip-sync. Voiceover delivers the message.</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="bg-primary-dark border border-primary-light rounded-lg p-6">
-                        <h3 class="text-xl font-bold text-white mb-3">How can I start using BlinkofAI?</h3>
-                        <p class="text-gray-400 leading-relaxed">
-                            We recommend scheduling a 30-min introductory chat with the founders as the first step. Every growth team needs a different set of tools and setup depending on your scale, speed of growth, and constraints. So we prefer to onboard each customer by first understanding the requirements and then sharing access to the platform.
-                        </p>
+                    <!-- Master Video Ad: Advanced -->
+                    <div class="bg-primary border border-primary-light rounded-xl p-6">
+                        <div class="text-center mb-4">
+                            <h3 class="text-xl font-bold text-white mb-2">Master Video Ad: Advanced</h3>
+                            <div class="text-accent font-bold text-2xl">$200 per Video Ad</div>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="text-white font-semibold text-sm mb-1">Product Video Ad</h4>
+                                <p class="text-gray-400 text-xs">Product is the hero. Showcases features with voiceover and text. Manual accuracy checks</p>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-sm mb-1">Character + Product</h4>
+                                <p class="text-gray-400 text-xs">Characters interact with product on-screen. Combines character storytelling and product showcase. Includes voiceover. No lip-sync. Manual quality checks.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-sm mb-1">Lip Sync Character</h4>
+                                <p class="text-gray-400 text-xs">Characters speak with high-fidelity lip sync. Characters have emotions and deliver message realistically.</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="bg-primary-dark border border-primary-light rounded-lg p-6">
-                        <h3 class="text-xl font-bold text-white mb-3">Is it safe to connect my ad accounts to BlinkofAI?</h3>
-                        <p class="text-gray-400 leading-relaxed">
-                            We understand that privacy is an utmost concern when you're handling confidential ad performance data. Rest assured, BlinkofAI is SOC-2 compliant, uses only trusted LLM providers and never stores any of your data without permission. You can opt to remove your account at any time.
-                        </p>
+                    <!-- Adaptations -->
+                    <div class="bg-primary border border-primary-light rounded-xl p-6">
+                        <div class="text-center mb-4">
+                            <h3 class="text-xl font-bold text-white mb-2">Adaptations</h3>
+                            <p class="text-gray-300 text-sm mb-4">Personalized video ads from the Master video ad</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="text-accent font-bold text-lg mb-1">$20 / Duration Adapt</div>
+                                <p class="text-gray-400 text-xs">30s, 20s, 15s, 9s, custom</p>
+                            </div>
+                            <div>
+                                <div class="text-accent font-bold text-lg mb-1">$5 / Aspect Ratio Adapt</div>
+                                <p class="text-gray-400 text-xs">Square (1:1), Vertical (9:16), Horizontal (16:9)</p>
+                            </div>
+                            <div>
+                                <div class="text-accent font-bold text-lg mb-1">$30 / Language Adapt</div>
+                                <p class="text-gray-400 text-xs">AI voiceover translated in target language. Translated text overlays</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="bg-primary-dark border border-primary-light rounded-lg p-6">
-                        <h3 class="text-xl font-bold text-white mb-3">How does pricing work?</h3>
-                        <p class="text-gray-400 leading-relaxed">
-                            Our Starter plan starts at $999/month per integration, billed annually. For Professional and Enterprise plans, pricing is custom and flexes with your team's scale and scope. We realize that each team is unique so we prefer to custom design a plan that works for you and your team.
-                        </p>
+                    <!-- Video Ad Variations -->
+                    <div class="bg-primary border border-primary-light rounded-xl p-6">
+                        <div class="text-center mb-4">
+                            <h3 class="text-xl font-bold text-white mb-2">Video Ad Variations</h3>
+                            <p class="text-gray-300 text-sm mb-4">for A/B testing</p>
+                        </div>
+                        <div class="space-y-3">
+                            <p class="text-gray-400 text-xs">Testing versions of Master Video Ads</p>
+                            <ul class="text-gray-400 text-xs space-y-1 list-disc list-inside">
+                                <li>Hook's Super Variations</li>
+                                <li>CTA's Super Variations</li>
+                            </ul>
+                            <p class="text-gray-300 text-xs mt-4 font-semibold">6 variations are included in Master Video Ad's pricing</p>
+                        </div>
                     </div>
+                </div>
+
+                <div class="text-center mt-8">
+                    <a href="#contact" class="text-accent hover:text-accent-light font-semibold text-lg transition-colors duration-200">
+                        See Video Examples
+                    </a>
+                </div>
+            </div>
+
+            <!-- FAQs -->
+            <div class="bg-primary-dark border border-primary-light rounded-2xl p-8 mb-16">
+                <h3 class="text-3xl font-bold text-white mb-8">FAQs</h3>
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-white font-semibold text-lg mb-2">Q: What happens to unused videos or variants?</h4>
+                        <p class="text-gray-400">A: They roll over month-to-month while subscription is active.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-semibold text-lg mb-2">Q: Can I switch plans?</h4>
+                        <p class="text-gray-400">A: Yes, upgrade anytime (immediate effect), downgrade at end of billing cycle.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-semibold text-lg mb-2">Q: Can I get custom video done?</h4>
+                        <p class="text-gray-400">A: Yes, for special formats, rush delivery, white-label, email hello@blinkofai.io or book a call for a custom package.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom CTAs -->
+            <div class="space-y-6 mb-16">
+                <!-- CTA 1 -->
+                <div class="bg-primary-dark border border-primary-light rounded-2xl p-12 text-center">
+                    <h3 class="text-3xl font-bold text-white mb-4">Still not sure which plan is right?</h3>
+                    <p class="text-gray-400 mb-6">Talk to our team of your campaign goals and we'll recommend the best plans for your needs.</p>
+                    <a href="#contact" class="inline-block bg-accent hover:bg-accent-light text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105 shadow-lg shadow-accent/50">
+                        Book a 15-minute call
+                    </a>
+                </div>
+
+                <!-- CTA 2 -->
+                <div class="bg-primary-dark border border-primary-light rounded-2xl p-12 text-center">
+                    <h3 class="text-3xl font-bold text-white mb-4">Or start free - no credit card required</h3>
+                    <p class="text-gray-400 mb-6">Join 200+ performance marketers using BlinkofAI</p>
+                    <a href="#contact" class="inline-block bg-accent hover:bg-accent-light text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105 shadow-lg shadow-accent/50">
+                        Start Free with ScriptLab
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 {{ end }}
-
