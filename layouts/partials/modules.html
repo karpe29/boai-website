@@ -3,11 +3,13 @@
     "title" "ScriptLab"
     "subtitle" "Creative Strategy for Winning Scripts"
     "badge" "Live Now"
-    "tryButton" (dict "text" "Generate your winning Script" "url" "#contact")
+    "tryButton" (dict "text" "Get your Winning Script" "url" "#contact")
     "tabs" (slice
-        (dict "title" "Brand Research" "description" "Analyze past winners, competitors, and audiences. Extract brand voice, tone, and messaging style from your website, social media, and past campaigns." "icon" "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" "start" 0 "end" 3)
-        (dict "title" "Competitor Research" "description" "Research competitor video ads from Meta Ad Library. Analyze what works and identify opportunities for differentiation." "icon" "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" "start" 3 "end" 6)
-        (dict "title" "Script Generation" "description" "Generate on-brand, compliance-ready scripts with hooks and CTA banks. Research-backed scripts that convert." "icon" "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" "start" 6 "end" 9)
+        (dict "title" "Campaign Brief" "description" "Input your Campaign Brief with goals, audience, and messaging requirements." "icon" "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" "start" 0 "end" 3)
+        (dict "title" "Brand Research" "description" "Campaign Research and past winners' analysis. Analyze past winners (5 video ads) to extract insights: Price-focused hooks perform best, 15s duration optimal, 'Save X%' CTA drives conversions, Tone: Direct & Informative (3-5 words per super), Visuals: Show don't tell." "icon" "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" "start" 3 "end" 6)
+        (dict "title" "Competitor Video Analysis" "description" "Research competitor video ads. Analyze 12 competitor ads to identify: Competitor messaging and differentiators, Trending patterns like 'Limited Time' Hooks (8/12 ads), Problem → Solution → CTA structure, Urgent CTAs ('Today Only')." "icon" "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" "start" 6 "end" 9)
+        (dict "title" "Creative Strategy Report" "description" "Get comprehensive research insights: Brand Research (Funnel: Conversion, 8 past winners analyzed, Top performing hook styles), Competitor Video Analysis (5 competitors identified, 12 competitor ads analyzed, Trending messaging themes), Persona Analysis (Persona: Budget Conscious Millennials, 3 Sources Analyzed, Address pain points & motivations), Video Ad Structures, Messaging Framework, Hook & CTA Bank (6 Hooks generated, 2 CTAs generated)." "icon" "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" "start" 9 "end" 12)
+        (dict "title" "Scripts" "description" "Review winning scripts ready for production. Script snippets, Hook CTA bank, all on-brand and compliance-checked." "icon" "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" "start" 12 "end" 15)
     )
     "videoSrc" "/videos/demoVideo.mp4"
     "moduleId" "scriptlab"
@@ -18,10 +20,10 @@
 {{/* VisualStudio Module */}}
 {{ partial "module-section.html" (dict 
         "title" "VisualStudio"
-        "subtitle" "Visual assets preparation - Select from your brand library or generate on-brand, on-script visuals"
+        "subtitle" "Select or generate on-brand visuals"
         "tabs" (slice
-        (dict "title" "Select from Library" "description" "Choose clips from your existing brand visuals library. Maintain consistency with your established visual identity." "icon" "M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" "start" 0 "end" 4)
-        (dict "title" "Generate Visuals" "description" "Create on-brand, on-script visuals for your master video ad. From storyboard to image prompt to photo to video - all aligned with your brand identity." "icon" "M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" "start" 4 "end" 8)
+        (dict "title" "Select from library" "description" "Choose from your existing brand visuals library. Maintain consistency with your established visual identity (colors, fonts, logos)." "icon" "M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" "start" 0 "end" 4)
+        (dict "title" "Generate visuals" "description" "Generate on-script visuals with any AI video models. Storyboard → Image Prompt → display Photo → Video Prompt → display Video. All on-brand and compliance-checked." "icon" "M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" "start" 4 "end" 8)
     )
     "videoSrc" "/videos/demoVideo.mp4"
     "moduleId" "visualstudio"
@@ -32,10 +34,10 @@
 {{/* AdLab Module */}}
 {{ partial "module-section.html" (dict 
         "title" "AdLab"
-        "subtitle" "Master video creation - Build on-brand master video ad, split into modular blocks for variants, verify compliance"
+        "subtitle" "Master video creation and variant preparation"
         "tabs" (slice
-        (dict "title" "Build Master Video" "description" "Assemble on-brand master video and split into modular blocks for variants. Professional timeline editing with track and VO." "icon" "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" "start" 0 "end" 4)
-        (dict "title" "Compliance Check" "description" "Verify brand guidelines, voice, tone, visuals, and legal compliance. Ensures nothing slips through the cracks before launch." "icon" "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" "start" 4 "end" 8)
+        (dict "title" "Build and Structure Master Video Ad" "description" "Assemble master video and split into modular blocks. Professional timeline editing with track and VO. Create or Select Visuals → Edit on track and VO → Finesse with Supers, Animation." "icon" "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" "start" 0 "end" 4)
+        (dict "title" "Checklist" "description" "Verify brand guidelines and compliance before launch. Brand Guidelines: Voice & tone matches brand, Visual identity (colors, fonts, logos), On-brand messaging & positioning. Content Quality: VO script & Supers accurate, Subtitles synced & spell-checked, Technical specs (aspect ratio, duration). Regulatory Compliance: Claims substantiated with evidence, No prohibited terms or phrases, Legal disclaimers included." "icon" "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" "start" 4 "end" 8)
     )
     "videoSrc" "/videos/demoVideo.mp4"
     "moduleId" "adlab"
@@ -46,11 +48,11 @@
 {{/* VariantEngine Module */}}
 {{ partial "module-section.html" (dict 
         "title" "VariantEngine"
-        "subtitle" "Personalized video variants - Generate persona and platform variants, enable pre-launch testing, and refresh fatigued ads"
+        "subtitle" "Personalized video variants"
         "tabs" (slice
-        (dict "title" "Personalize Video Ads" "description" "Generate persona and platform variants by duration, language, and ratio. Omni-channel ready video ads personalized for each audience." "icon" "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" "start" 0 "end" 4)
-        (dict "title" "A/B Testing Options" "description" "Create hook and CTA variant options to A/B test before launch. Test more variations, learn faster, and scale what works." "icon" "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" "start" 4 "end" 8)
-        (dict "title" "Refresh Fatigued Ads" "description" "Analyze performance data and refresh video ads to re-engage fatigued audiences. Optimize in-campaign based on real performance metrics." "icon" "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" "start" 8 "end" 12)
+        (dict "title" "Personalize video ads" "description" "Generate persona and platform variants by duration, language, and ratio. Omni-Channel ready. Personalization includes: CTA, Hooks, Language, Duration." "icon" "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" "start" 0 "end" 4)
+        (dict "title" "A/B testing options" "description" "Create hook and CTA variant options to A/B test before launch. Test more variations, learn faster, and scale what works." "icon" "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" "start" 4 "end" 8)
+        (dict "title" "Refresh fatigued ads" "description" "Analyze performance data and refresh video ads to re-engage fatigued audiences. Optimize in-campaign based on real performance metrics." "icon" "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" "start" 8 "end" 12)
     )
     "videoSrc" "/videos/demoVideo.mp4"
     "moduleId" "variantengine"
@@ -63,8 +65,8 @@
         "title" "BrandDNA"
         "subtitle" "Stay On-Brand. Stay Compliant. Always."
         "tabs" (slice
-        (dict "title" "On-Brand" "description" "Extracted once, applied everywhere. We extract voice, tone, messaging style, visual identity (colors, fonts, logos), and brand story and positioning." "icon" "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" "start" 0 "end" 4)
-        (dict "title" "Always Compliant" "description" "Catches compliance risks before launch. Enforces substantiation requirements for claims, prohibited terms and safe language rules, industry-specific regulatory watchouts, and hook/CTA restrictions." "icon" "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" "start" 4 "end" 8)
+        (dict "title" "On-Brand" "description" "Extracted once, applied everywhere. What we extract: Voice, tone, and messaging style. Visual identity: colors, fonts, logos. Brand story and positioning." "icon" "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" "start" 0 "end" 4)
+        (dict "title" "Always Compliant" "description" "Catches compliance risks before launch. What we enforce: Substantiation requirements for claims. Prohibited terms and safe language rules. Industry-specific regulatory watchouts. Hook and CTA restrictions for compliant messaging." "icon" "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" "start" 4 "end" 8)
     )
     "videoSrc" "/videos/demoVideo.mp4"
     "moduleId" "branddna"

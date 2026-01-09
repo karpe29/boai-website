@@ -1,0 +1,81 @@
+<section class="relative min-h-[600px] flex items-center justify-center bg-primary overflow-hidden">
+    <!-- Background gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-primary via-primary-dark to-primary opacity-90"></div>
+    
+    <div class="container mx-auto px-6 py-20 relative z-10">
+        <div class="max-w-6xl mx-auto text-center">
+            <!-- Main headline -->
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white">
+                Personalized video ads that learn and deliver ROI
+            </h1>
+            
+            <!-- Sub headline -->
+            <p class="text-xl md:text-2xl font-thin text-gray-300 mt-6 max-w-3xl mx-auto leading-relaxed mb-12">
+                Your brief. Our research. Video ads personalized by persona and platform. Optimized in-campaign.
+            </p>
+            
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <a href="#contact" class="bg-accent hover:bg-accent-light text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105 shadow-lg shadow-accent/50">
+                    Talk to Founding Team
+                </a>
+                <a href="#journey-preview" class="bg-white/10 backdrop-blur-xl border border-accent/50 hover:border-accent text-accent hover:text-accent-light px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200">
+                    Get 2 Free Scripts
+                </a>
+            </div>
+            
+            <!-- Rotating Insights -->
+            <div class="text-center">
+                <p class="text-gray-400 text-sm mb-2">See results like:</p>
+                <div id="rotating-insights" class="text-accent text-2xl md:text-3xl font-bold min-h-[60px] flex items-center justify-center">
+                    <span class="insight-item">+186% CTR</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-accent/10 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const insights = [
+        '+186% CTR',
+        '+46% ROAS',
+        '-50% CPL',
+        '+35% average CTR lift'
+    ];
+    const container = document.getElementById('rotating-insights');
+    if (!container) return;
+    
+    let currentIndex = 0;
+    
+    function rotateInsight() {
+        const currentItem = container.querySelector('.insight-item');
+        if (currentItem) {
+            currentItem.style.opacity = '0';
+            currentItem.style.transform = 'translateY(-20px)';
+            
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % insights.length;
+                currentItem.textContent = insights[currentIndex];
+                currentItem.style.opacity = '1';
+                currentItem.style.transform = 'translateY(0)';
+            }, 300);
+        }
+    }
+    
+    // Initial styling
+    const item = container.querySelector('.insight-item');
+    if (item) {
+        item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    }
+    
+    // Rotate every 3 seconds
+    setInterval(rotateInsight, 3000);
+});
+</script>

@@ -4,19 +4,26 @@
     "tabs" (slice 
       (dict "title" "Tab 1" "description" "Description 1" "icon" "M12 4v16m8-8H4" "start" 0 "end" 3)
       (dict "title" "Tab 2" "description" "Description 2" "icon" "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" "start" 3 "end" 6)
+      (dict "title" "Tab 3" "description" "Description 3" "icon" "..." "videoSrc" "/videos/tab3.mp4")
+      (dict "title" "Tab 4" "description" "Description 4" "icon" "..." "imageSrc" "/images/tab4.jpg" "duration" 5)
     )
-    "videoSrc" "/videos/demoVideo.mp4"
+    "videoSrc" "/videos/demoVideo.mp4" (optional - fallback for tabs without videoSrc/imageSrc)
     "moduleId" "unique-id"
     "bgClass" "bg-primary"
     "bgClassAlt" "bg-primary-dark"
   ) }}
+  
+  Tab options:
+  - start/end: For single video mode (uses module-level videoSrc)
+  - videoSrc: Tab-specific video (overrides module videoSrc)
+  - imageSrc + duration: Tab-specific image with display duration in seconds
 */}}
 
-<section class="py-32 {{ .bgClass }}">
+<section class="py-12 md:py-24 {{ .bgClass }}">
     <div class="container mx-auto px-6">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-8">
-                <div class="flex items-center justify-center gap-3 mb-2">
+                <!-- <div class="flex items-center justify-center gap-3 mb-2">
                     <h2 class="text-4xl font-bold text-white">{{ .title }}</h2>
                     {{ if .badge }}
                     <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-accent/20 text-accent border border-accent/50">
@@ -34,7 +41,7 @@
                     </a>
                 </div>
                 {{ end }}
-            </div>
+            </div> -->
             
             <!-- Box Container: Tabs on Left, Video on Right -->
             <div class="flex flex-col md:flex-row border-2 border-primary-light bg-primary-dark overflow-hidden" style="min-height: 400px;">
@@ -46,8 +53,11 @@
                             role="tab"
                             aria-selected="{{ if eq $index 0 }}true{{ else }}false{{ end }}"
                             data-tab="{{ $index }}"
-                            data-start="{{ $tab.start }}"
-                            data-end="{{ $tab.end }}"
+                            {{ if $tab.start }}data-start="{{ $tab.start }}"{{ end }}
+                            {{ if $tab.end }}data-end="{{ $tab.end }}"{{ end }}
+                            {{ if $tab.videoSrc }}data-video-src="{{ $tab.videoSrc }}"{{ end }}
+                            {{ if $tab.imageSrc }}data-image-src="{{ $tab.imageSrc }}"{{ end }}
+                            {{ if $tab.duration }}data-duration="{{ $tab.duration }}"{{ end }}
                             class="module-tab flex-1 flex items-start gap-4 cursor-pointer p-6 transition-all duration-300 relative border-b border-primary-light last:border-b-0 {{ if eq $index 0 }}text-white bg-primary{{ else }}text-gray-400 hover:text-white bg-primary-dark{{ end }}"
                         >
                             <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center {{ if eq $index 0 }}bg-accent/20 text-accent{{ else }}bg-primary text-gray-500{{ end }}">
@@ -67,18 +77,29 @@
                     </div>
                 </div>
 
-                <!-- Right Column - Video (same height as tabs) -->
+                <!-- Right Column - Video/Image (same height as tabs) -->
                 <div class="w-full md:w-2/3 relative {{ .bgClassAlt }}">
                     <div class="relative w-full h-full" style="min-height: 400px;">
+                        <!-- Video Element (hidden if image is shown) -->
                         <video
                             data-module="{{ .moduleId }}"
                             class="module-video w-full h-full object-cover"
                             preload="metadata"
                             playsinline
+                            {{ if .videoSrc }}data-default-video="{{ .videoSrc }}"{{ end }}
                         >
+                            {{ if .videoSrc }}
                             <source src="{{ .videoSrc }}" type="video/mp4">
+                            {{ end }}
                             Your browser does not support the video tag.
                         </video>
+
+                        <!-- Image Element (hidden by default, shown when tab has imageSrc) -->
+                        <img
+                            data-module="{{ .moduleId }}"
+                            class="module-image w-full h-full object-cover hidden"
+                            alt="Module feature image"
+                        />
 
                         <!-- Gradient Overlay -->
                         <div class="absolute inset-0 bg-gradient-to-t from-emerald-900/60 via-slate-950/50 to-slate-900/40 pointer-events-none"></div>
@@ -88,7 +109,7 @@
                             <div class="progress-bar h-full bg-accent transition-all duration-75 ease-linear" style="width: 0%"></div>
                         </div>
 
-                        <!-- Play/Pause Button -->
+                        <!-- Play/Pause Button (hidden for images) -->
                         <button
                             class="play-pause-btn absolute bottom-5 right-5 h-14 w-14 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow-lg transition-all hover:scale-110 z-30"
                             aria-label="Play feature demo"

@@ -34,3 +34,6 @@ Write-Host "`nDone! If installation succeeded, close and reopen your terminal, t
 
 
 
+
+
+

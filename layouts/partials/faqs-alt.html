@@ -1,0 +1,101 @@
+<section class="py-32 bg-primary-dark">
+    <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+            <!-- Headline -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Common Questions</h2>
+            </div>
+
+            <div class="space-y-6">
+                <!-- FAQ 1 -->
+                <div class="bg-primary border border-primary-light rounded-lg overflow-hidden">
+                    <button class="faq-question-alt w-full text-left p-6 flex items-center justify-between hover:bg-primary-light transition-colors duration-200" onclick="toggleFAQAlt(this)">
+                        <span class="text-white font-semibold text-lg">What's the difference between self-serve and managed?</span>
+                        <svg class="faq-icon-alt w-6 h-6 text-accent transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer-alt hidden p-6 pt-0 text-gray-300">
+                        <p>Self-serve (ScriptLab): Generate research-backed scripts instantly on your own. Free tier includes 2 scripts per month. Managed service: Our team handles video production, visuals, and variant generation. Perfect for teams who want end-to-end video ad creation without the production overhead.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-primary border border-primary-light rounded-lg overflow-hidden">
+                    <button class="faq-question-alt w-full text-left p-6 flex items-center justify-between hover:bg-primary-light transition-colors duration-200" onclick="toggleFAQAlt(this)">
+                        <span class="text-white font-semibold text-lg">How long does video production take?</span>
+                        <svg class="faq-icon-alt w-6 h-6 text-accent transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer-alt hidden p-6 pt-0 text-gray-300">
+                        <p>From brief to video ads in 5-7 days. This includes script generation (instant with ScriptLab), visual creation, master video build, and personalized variant generation across personas and platforms.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-primary border border-primary-light rounded-lg overflow-hidden">
+                    <button class="faq-question-alt w-full text-left p-6 flex items-center justify-between hover:bg-primary-light transition-colors duration-200" onclick="toggleFAQAlt(this)">
+                        <span class="text-white font-semibold text-lg">Can I start with scripts and upgrade later?</span>
+                        <svg class="faq-icon-alt w-6 h-6 text-accent transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer-alt hidden p-6 pt-0 text-gray-300">
+                        <p>Absolutely! Start with ScriptLab's free tier (2 scripts per month). When you're ready for full video production, upgrade to Pro or Enterprise plans. You can also use ScriptLab scripts with your own production team.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-primary border border-primary-light rounded-lg overflow-hidden">
+                    <button class="faq-question-alt w-full text-left p-6 flex items-center justify-between hover:bg-primary-light transition-colors duration-200" onclick="toggleFAQAlt(this)">
+                        <span class="text-white font-semibold text-lg">What makes BlinkofAI different from templates?</span>
+                        <svg class="faq-icon-alt w-6 h-6 text-accent transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer-alt hidden p-6 pt-0 text-gray-300">
+                        <p>BlinkofAI doesn't use templates. Every script is research-backed, analyzing 19 competitor ads and building persona-specific insights. Our BrandDNA system ensures every output matches your brand voice and compliance rules. Plus, we generate personalized variants by persona and platform, not one-size-fits-all templates.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="bg-primary border border-primary-light rounded-lg overflow-hidden">
+                    <button class="faq-question-alt w-full text-left p-6 flex items-center justify-between hover:bg-primary-light transition-colors duration-200" onclick="toggleFAQAlt(this)">
+                        <span class="text-white font-semibold text-lg">Do you handle compliance checking?</span>
+                        <svg class="faq-icon-alt w-6 h-6 text-accent transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer-alt hidden p-6 pt-0 text-gray-300">
+                        <p>Yes! BrandDNA automatically enforces regulatory requirements, prohibited terms, and content guardrails. Over 100 checkpoints verify quality before output. Every script and video ad is compliance-ready for Meta, Google, CTV, and other platforms.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function toggleFAQAlt(button) {
+    const answer = button.nextElementSibling;
+    const icon = button.querySelector('.faq-icon-alt');
+    const isOpen = !answer.classList.contains('hidden');
+    
+    // Close all FAQs
+    document.querySelectorAll('.faq-answer-alt').forEach(ans => {
+        ans.classList.add('hidden');
+    });
+    document.querySelectorAll('.faq-icon-alt').forEach(ic => {
+        ic.classList.remove('rotate-180');
+    });
+    
+    // Toggle current FAQ
+    if (isOpen) {
+        answer.classList.add('hidden');
+    } else {
+        answer.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+    }
+}
+</script>

@@ -1,0 +1,34 @@
+# Example data file for Journey Preview section
+# This file is optional - you can also use params in config.toml
+# Usage: Load this in your template with: {{ $journey := .Site.Data.journey }}
+
+partA:
+  eyebrow: "Try This First"
+  badge: "FREE"
+  headline: "Research-Backed Scripts in Minutes"
+  ctaText: "Get 2 Free Scripts"
+  ctaUrl: "#scriptlab-demo"
+  features:
+    - title: "Competitor analysis"
+      sublabel: "19 video ads"
+    - title: "Persona insights"
+      sublabel: "6-box Strategy Report"
+    - title: "Tested hooks & CTAs"
+      sublabel: "9/10-rated scripts"
+
+partB:
+  eyebrow: "Need Videos?"
+  badge: "DONE FOR YOU"
+  headline: "We Handle the Rest"
+  timeline: "Timeline: 5-7 days from approved script"
+  ctaText: "Talk to Founding Team"
+  ctaUrl: "#contact"
+  features:
+    - title: "Brand-aligned visuals & storyboarding"
+      sublabel: "VisualStudio"
+    - title: "Professional video production"
+      sublabel: "AdLab"
+    - title: "12 persona × platform variants"
+      sublabel: "VariantEngine"
+    - title: "Compliance checking throughout"
+      sublabel: "BrandDNA"

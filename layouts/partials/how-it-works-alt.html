@@ -1,0 +1,502 @@
+<section id="how-it-works" class="py-32 bg-primary-dark">
+    <div class="container mx-auto px-6">
+        <div class="max-w-full mx-auto">
+            <!-- Headline -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">From Brief to Winner: The Full System</h2>
+            </div>
+            
+            <!-- Tab Navigation -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12 border-b border-primary-light">
+                <button class="tab-button active px-6 py-3 text-white font-semibold border-b-2 border-accent transition-colors duration-200" data-tab="scriptlab">
+                    ScriptLab
+                </button>
+                <button class="tab-button px-6 py-3 text-gray-400 hover:text-white font-semibold transition-colors duration-200" data-tab="visualstudio">
+                    VisualStudio
+                </button>
+                <button class="tab-button px-6 py-3 text-gray-400 hover:text-white font-semibold transition-colors duration-200" data-tab="adlab">
+                    AdLab
+                </button>
+                <button class="tab-button px-6 py-3 text-gray-400 hover:text-white font-semibold transition-colors duration-200" data-tab="variantengine">
+                    VariantEngine
+                </button>
+                <button class="tab-button px-6 py-3 text-gray-400 hover:text-white font-semibold transition-colors duration-200" data-tab="branddna">
+                    BrandDNA
+                </button>
+            </div>
+            
+            <!-- Tab Content -->
+            <div class="bg-primary-dark  p-2">
+                <!-- ScriptLab Content (Default) -->
+                <div id="tab-scriptlab" class="tab-content">
+                    {{ partial "module-section.html" (dict 
+                        "title" "ScriptLab"
+                        "subtitle" "Creative Strategy for Winning Scripts"
+                        "badge" "Live Now"
+                        "tryButton" (dict "text" "Get your Winning Script" "url" "#contact")
+                        "tabs" (slice
+                            (dict "title" "Campaign Brief" "description" "Input your Campaign Brief with goals, audience, and messaging requirements." "icon" "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" "start" 0 "end" 3)
+                            (dict "title" "Brand Research" "description" "Campaign Research and past winners' analysis. Analyze past winners (5 video ads) to extract insights: Price-focused hooks perform best, 15s duration optimal, 'Save X%' CTA drives conversions, Tone: Direct & Informative (3-5 words per super), Visuals: Show don't tell." "icon" "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" "start" 3 "end" 6)
+                            (dict "title" "Competitor Video Analysis" "description" "Research competitor video ads. Analyze 12 competitor ads to identify: Competitor messaging and differentiators, Trending patterns like 'Limited Time' Hooks (8/12 ads), Problem → Solution → CTA structure, Urgent CTAs ('Today Only')." "icon" "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" "start" 6 "end" 9)
+                            (dict "title" "Creative Strategy Report" "description" "Get comprehensive research insights: Brand Research (Funnel: Conversion, 8 past winners analyzed, Top performing hook styles), Competitor Video Analysis (5 competitors identified, 12 competitor ads analyzed, Trending messaging themes), Persona Analysis (Persona: Budget Conscious Millennials, 3 Sources Analyzed, Address pain points & motivations), Video Ad Structures, Messaging Framework, Hook & CTA Bank (6 Hooks generated, 2 CTAs generated)." "icon" "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" "start" 9 "end" 12)
+                            (dict "title" "Scripts" "description" "Review winning scripts ready for production. Script snippets, Hook CTA bank, all on-brand and compliance-checked." "icon" "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" "start" 12 "end" 15)
+                        )
+                        "videoSrc" "videos/demoVideo.mp4"
+                        "moduleId" "scriptlab"
+                        "bgClass" "bg-primary-dark"
+                        "bgClassAlt" "bg-primary"
+                    ) }}
+                </div>
+                
+                <!-- VisualStudio Content -->
+                <div id="tab-visualstudio" class="tab-content hidden">
+                    {{ partial "module-section.html" (dict 
+                        "title" "VisualStudio"
+                        "subtitle" "Select or generate on-brand visuals"
+                        "tabs" (slice
+                            (dict "title" "Select from library" "description" "Choose from your existing brand visuals library. Maintain consistency with your established visual identity (colors, fonts, logos)." "icon" "M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" "start" 0 "end" 4)
+                            (dict "title" "Generate visuals" "description" "Generate on-script visuals with any AI video models. Storyboard → Image Prompt → display Photo → Video Prompt → display Video. All on-brand and compliance-checked." "icon" "M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" "start" 4 "end" 8)
+                        )
+                        "videoSrc" "/videos/demoVideo.mp4"
+                        "moduleId" "visualstudio"
+                        "bgClass" "bg-primary-dark"
+                        "bgClassAlt" "bg-primary"
+                    ) }}
+                </div>
+                
+                <!-- AdLab Content -->
+                <div id="tab-adlab" class="tab-content hidden">
+                    {{ partial "module-section.html" (dict 
+                        "title" "AdLab"
+                        "subtitle" "Master video creation and variant preparation"
+                        "tabs" (slice
+                            (dict "title" "Build and Structure Master Video Ad" "description" "Assemble master video and split into modular blocks. Professional timeline editing with track and VO. Create or Select Visuals → Edit on track and VO → Finesse with Supers, Animation." "icon" "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" "start" 0 "end" 4)
+                            (dict "title" "Checklist" "description" "Verify brand guidelines and compliance before launch. Brand Guidelines: Voice & tone matches brand, Visual identity (colors, fonts, logos), On-brand messaging & positioning. Content Quality: VO script & Supers accurate, Subtitles synced & spell-checked, Technical specs (aspect ratio, duration). Regulatory Compliance: Claims substantiated with evidence, No prohibited terms or phrases, Legal disclaimers included." "icon" "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" "start" 4 "end" 8)
+                        )
+                        "videoSrc" "/videos/demoVideo.mp4"
+                        "moduleId" "adlab"
+                        "bgClass" "bg-primary-dark"
+                        "bgClassAlt" "bg-primary"
+                    ) }}
+                </div>
+                
+                <!-- VariantEngine Content -->
+                <div id="tab-variantengine" class="tab-content hidden">
+                    {{ partial "module-section.html" (dict 
+                        "title" "VariantEngine"
+                        "subtitle" "Personalized video variants"
+                        "tabs" (slice
+                            (dict "title" "Personalize video ads" "description" "Generate persona and platform variants by duration, language, and ratio. Omni-Channel ready. Personalization includes: CTA, Hooks, Language, Duration." "icon" "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" "start" 0 "end" 4)
+                            (dict "title" "A/B testing options" "description" "Create hook and CTA variant options to A/B test before launch. Test more variations, learn faster, and scale what works." "icon" "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" "start" 4 "end" 8)
+                            (dict "title" "Refresh fatigued ads" "description" "Analyze performance data and refresh video ads to re-engage fatigued audiences. Optimize in-campaign based on real performance metrics." "icon" "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" "start" 8 "end" 12)
+                        )
+                        "videoSrc" "/videos/demoVideo.mp4"
+                        "moduleId" "variantengine"
+                        "bgClass" "bg-primary-dark"
+                        "bgClassAlt" "bg-primary"
+                    ) }}
+                </div>
+                
+                <!-- BrandDNA Content -->
+                <div id="tab-branddna" class="tab-content hidden">
+                    {{ partial "module-section.html" (dict 
+                        "title" "BrandDNA"
+                        "subtitle" "Stay On-Brand. Stay Compliant. Always."
+                        "tabs" (slice
+                            (dict "title" "On-Brand" "description" "Extracted once, applied everywhere. What we extract: Voice, tone, and messaging style. Visual identity: colors, fonts, logos. Brand story and positioning." "icon" "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" "start" 0 "end" 4)
+                            (dict "title" "Always Compliant" "description" "Catches compliance risks before launch. What we enforce: Substantiation requirements for claims. Prohibited terms and safe language rules. Industry-specific regulatory watchouts. Hook and CTA restrictions for compliant messaging." "icon" "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" "start" 4 "end" 8)
+                        )
+                        "videoSrc" "/videos/demoVideo.mp4"
+                        "moduleId" "branddna"
+                        "bgClass" "bg-primary-dark"
+                        "bgClassAlt" "bg-primary"
+                    ) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Tab navigation for main tabs
+document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const tabId = this.getAttribute('data-tab');
+            
+            // Remove active class from all buttons
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active', 'border-b-2', 'border-accent');
+                btn.classList.add('text-gray-400');
+            });
+            
+            // Add active class to clicked button
+            this.classList.add('active', 'border-b-2', 'border-accent', 'text-white');
+            this.classList.remove('text-gray-400');
+            
+            // Hide all tab contents
+            tabContents.forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Show selected tab content
+            const selectedContent = document.getElementById('tab-' + tabId);
+            if (selectedContent) {
+                selectedContent.classList.remove('hidden');
+            }
+        });
+    });
+
+    // Initialize all modules with synchronized tab/video/image functionality
+    const modules = ['scriptlab', 'visualstudio', 'adlab', 'variantengine', 'branddna'];
+    
+    modules.forEach(moduleName => {
+        const tabContainer = document.querySelector(`[data-module="${moduleName}"]`);
+        if (!tabContainer) return;
+        
+        const tabs = tabContainer.querySelectorAll('.module-tab');
+        if (tabs.length === 0) return;
+        
+        // Find the parent container that holds both tabs and media
+        const parentContainer = tabContainer.closest('.flex.flex-col.md\\:flex-row');
+        if (!parentContainer) return;
+        
+        // Find media container in the right column
+        const mediaContainer = parentContainer.querySelector('.relative');
+        if (!mediaContainer) return;
+        
+        const video = mediaContainer.querySelector(`video[data-module="${moduleName}"]`);
+        const image = mediaContainer.querySelector(`img[data-module="${moduleName}"]`);
+        const progressBar = mediaContainer.querySelector('.progress-bar');
+        const playPauseBtn = mediaContainer.querySelector('.play-pause-btn');
+        const playIcon = playPauseBtn ? playPauseBtn.querySelector('.play-icon') : null;
+        const pauseIcon = playPauseBtn ? playPauseBtn.querySelector('.pause-icon') : null;
+        
+        if ((!video && !image) || !progressBar || !playPauseBtn) return;
+        
+        let currentActiveTab = 0;
+        let isPlaying = false;
+        let progress = 0;
+        let progressInterval = null;
+        let imageTimer = null;
+        let currentMediaType = 'video'; // 'video' or 'image'
+        
+        function updateActiveTab(index) {
+            tabs.forEach((tab, i) => {
+                const icon = tab.querySelector('div:first-child');
+                const title = tab.querySelector('h3');
+                const underline = tab.querySelector('.absolute.bottom-0');
+                
+                if (i === index) {
+                    tab.setAttribute('aria-selected', 'true');
+                    tab.classList.remove('text-gray-400', 'hover:text-white', 'bg-primary-dark');
+                    tab.classList.add('text-white', 'bg-primary');
+                    icon.classList.remove('bg-primary', 'text-gray-500');
+                    icon.classList.add('bg-accent/20', 'text-accent');
+                    title.classList.remove('text-gray-300');
+                    title.classList.add('text-white');
+                    if (underline) underline.classList.remove('hidden');
+                } else {
+                    tab.setAttribute('aria-selected', 'false');
+                    tab.classList.remove('text-white', 'bg-primary');
+                    tab.classList.add('text-gray-400', 'hover:text-white', 'bg-primary-dark');
+                    icon.classList.remove('bg-accent/20', 'text-accent');
+                    icon.classList.add('bg-primary', 'text-gray-500');
+                    title.classList.remove('text-white');
+                    title.classList.add('text-gray-300');
+                    if (underline) underline.classList.add('hidden');
+                }
+            });
+        }
+        
+        function changeChapter(index) {
+            currentActiveTab = index;
+            const tab = tabs[index];
+            
+            // Clear any existing timers
+            if (progressInterval) clearInterval(progressInterval);
+            if (imageTimer) clearInterval(imageTimer);
+            
+            const imageSrc = tab.getAttribute('data-image-src');
+            const videoSrc = tab.getAttribute('data-video-src');
+            const duration = parseFloat(tab.getAttribute('data-duration'));
+            const start = tab.getAttribute('data-start') ? parseFloat(tab.getAttribute('data-start')) : null;
+            const end = tab.getAttribute('data-end') ? parseFloat(tab.getAttribute('data-end')) : null;
+            
+            progress = 0;
+            progressBar.style.width = '0%';
+            
+            updateActiveTab(index);
+            
+            // Handle image with duration
+            if (imageSrc && duration) {
+                currentMediaType = 'image';
+                if (video) {
+                    video.pause();
+                    video.classList.add('hidden');
+                }
+                if (image) {
+                    image.src = imageSrc;
+                    image.classList.remove('hidden');
+                }
+                if (playPauseBtn) playPauseBtn.classList.add('hidden');
+                
+                // Start image timer
+                isPlaying = true;
+                startImageTimer(duration);
+            }
+            // Handle tab-specific video
+            else if (videoSrc && video) {
+                currentMediaType = 'video';
+                if (image) image.classList.add('hidden');
+                if (playPauseBtn) playPauseBtn.classList.remove('hidden');
+                
+                // Load and play the specific video
+                video.src = videoSrc;
+                video.load();
+                video.currentTime = 0;
+                
+                video.addEventListener('loadeddata', function playVideo() {
+                    video.play();
+                    isPlaying = true;
+                    if (playIcon) playIcon.classList.add('hidden');
+                    if (pauseIcon) pauseIcon.classList.remove('hidden');
+                    if (playPauseBtn) playPauseBtn.setAttribute('aria-label', 'Pause feature demo');
+                    startVideoProgressAnimation(video.duration);
+                    video.removeEventListener('loadeddata', playVideo);
+                }, { once: true });
+            }
+            // Handle single video with start/end times (backward compatible)
+            else if (start !== null && end !== null && video) {
+                currentMediaType = 'video';
+                if (image) image.classList.add('hidden');
+                if (playPauseBtn) playPauseBtn.classList.remove('hidden');
+                
+                // Use default video if available
+                const defaultVideo = video.getAttribute('data-default-video');
+                if (defaultVideo && video.src !== defaultVideo) {
+                    video.src = defaultVideo;
+                    video.load();
+                }
+                
+                video.pause();
+                video.currentTime = start;
+                
+                // Auto-play when tab is clicked
+                setTimeout(() => {
+                    video.play();
+                    isPlaying = true;
+                    if (playIcon) playIcon.classList.add('hidden');
+                    if (pauseIcon) pauseIcon.classList.remove('hidden');
+                    if (playPauseBtn) playPauseBtn.setAttribute('aria-label', 'Pause feature demo');
+                    startProgressAnimation();
+                }, 100);
+            }
+        }
+        
+        function startImageTimer(duration) {
+            if (imageTimer) clearInterval(imageTimer);
+            
+            let elapsed = 0;
+            const interval = 50; // Update every 50ms
+            
+            imageTimer = setInterval(() => {
+                if (isPlaying) {
+                    elapsed += interval / 1000; // Convert to seconds
+                    const progressPercent = Math.min((elapsed / duration) * 100, 100);
+                    progressBar.style.width = progressPercent + '%';
+                    
+                    if (elapsed >= duration) {
+                        clearInterval(imageTimer);
+                        progressBar.style.width = '100%';
+                        // Auto-advance to next tab
+                        if (currentActiveTab < tabs.length - 1) {
+                            changeChapter(currentActiveTab + 1);
+                        } else {
+                            changeChapter(0);
+                        }
+                    }
+                }
+            }, interval);
+        }
+        
+        function startVideoProgressAnimation(videoDuration) {
+            if (progressInterval) clearInterval(progressInterval);
+            
+            const interval = 50;
+            
+            progressInterval = setInterval(() => {
+                if (isPlaying && video && video.currentTime < videoDuration) {
+                    const currentProgress = (video.currentTime / videoDuration) * 100;
+                    progress = Math.min(currentProgress, 100);
+                    progressBar.style.width = progress + '%';
+                } else if (video && video.currentTime >= videoDuration) {
+                    progress = 100;
+                    progressBar.style.width = '100%';
+                    clearInterval(progressInterval);
+                    // Auto-advance will be handled by ended event
+                }
+            }, interval);
+        }
+        
+        function startProgressAnimation() {
+            if (progressInterval) clearInterval(progressInterval);
+            
+            const activeTab = tabs[currentActiveTab];
+            const start = parseFloat(activeTab.getAttribute('data-start'));
+            const end = parseFloat(activeTab.getAttribute('data-end'));
+            const duration = end - start;
+            
+            const interval = 50;
+            
+            progressInterval = setInterval(() => {
+                if (isPlaying && video && video.currentTime < end) {
+                    const currentProgress = ((video.currentTime - start) / duration) * 100;
+                    progress = Math.min(currentProgress, 100);
+                    progressBar.style.width = progress + '%';
+                } else if (video && video.currentTime >= end) {
+                    progress = 100;
+                    progressBar.style.width = '100%';
+                    clearInterval(progressInterval);
+                    // Auto-advance will be handled by timeupdate event
+                }
+            }, interval);
+        }
+        
+        function togglePlayPause() {
+            if (currentMediaType === 'image') {
+                // Images don't have play/pause, but we can pause the timer
+                if (isPlaying) {
+                    isPlaying = false;
+                    if (imageTimer) clearInterval(imageTimer);
+                } else {
+                    const tab = tabs[currentActiveTab];
+                    const duration = parseFloat(tab.getAttribute('data-duration'));
+                    isPlaying = true;
+                    startImageTimer(duration);
+                }
+            } else if (video) {
+                if (isPlaying) {
+                    video.pause();
+                    isPlaying = false;
+                    if (playIcon) playIcon.classList.remove('hidden');
+                    if (pauseIcon) pauseIcon.classList.add('hidden');
+                    playPauseBtn.setAttribute('aria-label', 'Play feature demo');
+                    if (progressInterval) clearInterval(progressInterval);
+                } else {
+                    video.play();
+                    isPlaying = true;
+                    if (playIcon) playIcon.classList.add('hidden');
+                    if (pauseIcon) pauseIcon.classList.remove('hidden');
+                    playPauseBtn.setAttribute('aria-label', 'Pause feature demo');
+                    
+                    // Determine which progress animation to use
+                    const tab = tabs[currentActiveTab];
+                    const videoSrc = tab.getAttribute('data-video-src');
+                    if (videoSrc) {
+                        startVideoProgressAnimation(video.duration);
+                    } else {
+                        startProgressAnimation();
+                    }
+                }
+            }
+        }
+        
+        tabs.forEach((tab, index) => {
+            tab.addEventListener('click', () => {
+                // Always auto-play when tab is clicked
+                changeChapter(index);
+            });
+        });
+        
+        if (playPauseBtn) {
+            playPauseBtn.addEventListener('click', togglePlayPause);
+        }
+        
+        if (video) {
+            video.addEventListener('play', () => {
+                isPlaying = true;
+                if (playIcon) playIcon.classList.add('hidden');
+                if (pauseIcon) pauseIcon.classList.remove('hidden');
+                if (playPauseBtn) playPauseBtn.setAttribute('aria-label', 'Pause feature demo');
+                
+                // Determine which progress animation to use
+                const tab = tabs[currentActiveTab];
+                const videoSrc = tab.getAttribute('data-video-src');
+                if (videoSrc) {
+                    startVideoProgressAnimation(video.duration);
+                } else {
+                    startProgressAnimation();
+                }
+            });
+            
+            video.addEventListener('pause', () => {
+                isPlaying = false;
+                if (playIcon) playIcon.classList.remove('hidden');
+                if (pauseIcon) pauseIcon.classList.add('hidden');
+                if (playPauseBtn) playPauseBtn.setAttribute('aria-label', 'Play feature demo');
+                if (progressInterval) clearInterval(progressInterval);
+            });
+            
+            video.addEventListener('timeupdate', () => {
+                const activeTab = tabs[currentActiveTab];
+                const start = activeTab.getAttribute('data-start');
+                const end = activeTab.getAttribute('data-end');
+                
+                // Only handle auto-advance for single video mode (with start/end)
+                if (start && end) {
+                    const startTime = parseFloat(start);
+                    const endTime = parseFloat(end);
+                    
+                    // Auto-advance to next tab when current chapter ends
+                    if (video.currentTime >= endTime && isPlaying) {
+                        // Clear progress interval
+                        if (progressInterval) clearInterval(progressInterval);
+                        
+                        // Move to next tab (auto-plays via changeChapter)
+                        if (currentActiveTab < tabs.length - 1) {
+                            changeChapter(currentActiveTab + 1);
+                        } else {
+                            // Loop back to first tab
+                            changeChapter(0);
+                        }
+                    }
+                }
+            });
+            
+            video.addEventListener('ended', () => {
+                // Handle auto-advance for tab-specific videos
+                const activeTab = tabs[currentActiveTab];
+                const videoSrc = activeTab.getAttribute('data-video-src');
+                
+                if (videoSrc && isPlaying) {
+                    // Clear progress interval
+                    if (progressInterval) clearInterval(progressInterval);
+                    
+                    // Move to next tab (auto-plays via changeChapter)
+                    if (currentActiveTab < tabs.length - 1) {
+                        changeChapter(currentActiveTab + 1);
+                    } else {
+                        // Loop back to first tab
+                        changeChapter(0);
+                    }
+                }
+            });
+        }
+        
+        updateActiveTab(0);
+        // Initialize first tab
+        changeChapter(0);
+    });
+});
+</script>
+
+<style>
+.tab-button.active {
+    color: white;
+    border-bottom: 2px solid #FF7F27;
+}
+</style>

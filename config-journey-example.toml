@@ -1,0 +1,20 @@
+# Example configuration snippet for Journey Preview section
+# Add this to your config.toml file under [params]
+
+[params.journey]
+  # Part A: ScriptLab (Self-Serve)
+  [params.journey.partA]
+    eyebrow = "Try This First"
+    badge = "FREE"
+    headline = "Research-Backed Scripts in Minutes"
+    ctaText = "Get 2 Free Scripts"
+    ctaUrl = "#scriptlab-demo"
+  
+  # Part B: Full Video (Managed Service)
+  [params.journey.partB]
+    eyebrow = "Need Videos?"
+    badge = "DONE FOR YOU"
+    headline = "We Handle the Rest"
+    timeline = "Timeline: 5-7 days from approved script"
+    ctaText = "Talk to Founding Team"
+    ctaUrl = "#contact"

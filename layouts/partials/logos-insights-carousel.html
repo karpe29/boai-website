@@ -1,0 +1,66 @@
+<section class="py-12 bg-primary border-t border-b border-primary-light min-h-[300px] flex items-center">
+    <div class="container mx-auto px-6">
+        <!-- Client Logos -->
+        <div class="mb-8">
+            <div class="text-center mb-6">
+                <p class="text-gray-300 text-lg font-medium">Trusted by performance marketers at:</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center justify-items-center">
+                <div class="flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300">
+                    <div class="text-gray-400 text-xl font-semibold">Indira IVF</div>
+                </div>
+                <div class="flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300">
+                    <div class="text-gray-400 text-xl font-semibold">JPearls</div>
+                </div>
+                <div class="flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300">
+                    <div class="text-gray-400 text-xl font-semibold">OYO</div>
+                </div>
+                <div class="flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300">
+                    <div class="text-gray-400 text-xl font-semibold">Logo 4</div>
+                </div>
+                <div class="flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300">
+                    <div class="text-gray-400 text-xl font-semibold">Logo 5</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Rotating Insights Carousel -->
+        <!-- <div class="text-center border-t border-primary-light pt-8">
+            <div id="insights-carousel" class="flex items-center justify-center gap-4 min-h-[80px]">
+                <div class="insight-stat active text-center">
+                    <p class="text-accent text-3xl md:text-4xl font-bold mb-2">+186% CTR</p>
+                </div>
+                <div class="insight-stat hidden text-center">
+                    <p class="text-accent text-3xl md:text-4xl font-bold mb-2">+46% ROAS</p>
+                </div>
+                <div class="insight-stat hidden text-center">
+                    <p class="text-accent text-3xl md:text-4xl font-bold mb-2">-50% CPL</p>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const stats = document.querySelectorAll('.insight-stat');
+    if (stats.length === 0) return;
+    
+    let currentIndex = 0;
+    
+    function rotateStat() {
+        // Hide current
+        stats[currentIndex].classList.add('hidden');
+        stats[currentIndex].classList.remove('active');
+        
+        // Show next
+        currentIndex = (currentIndex + 1) % stats.length;
+        stats[currentIndex].classList.remove('hidden');
+        stats[currentIndex].classList.add('active');
+    }
+    
+    // Rotate every 3 seconds
+    setInterval(rotateStat, 3000);
+});
+</script>

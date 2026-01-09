@@ -1,0 +1,170 @@
+<section class="relative min-h-screen flex flex-col bg-primary overflow-hidden" id="videoportfolio-section">
+    <!-- Background gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-primary via-primary-dark to-primary opacity-90"></div>
+    
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-accent/10 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+    </div>
+    
+    <div class="container mx-auto px-6 relative z-10 flex-1 flex flex-col">
+        <div class="max-w-7xl mx-auto w-full flex-1 flex flex-col">
+            <!-- Headline - 60% of viewport height, centered vertically -->
+            <div class="h-[60vh] flex items-center justify-center">
+                <div class="text-center">
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-normal leading-tight text-[#d8d8dc] mb-2 tracking-tight" style="font-family: 'Georgia', 'Times New Roman', 'Palatino', 'Book Antiqua', serif;">
+                        Personalized video ads that
+                    </h1>
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-normal leading-tight text-[#d8d8dc] mb-6 tracking-tight" style="font-family: 'Georgia', 'Times New Roman', 'Palatino', 'Book Antiqua', serif;">
+                        learn and deliver ROI
+                    </h1>
+                    <p class="text-lg md:text-xl lg:text-2xl text-[#d8d8dc]/80 font-light max-w-3xl mx-auto" style="font-family: 'Poppins', sans-serif;">
+                        Your brief. Our research. Video ads personalized by persona and platform. Optimized in-campaign.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Carousel Container - Takes 40% of viewport height -->
+            <div class="relative  flex items-center justify-center" id="videoportfolio-carousel" 
+                 data-video1="{{ "videos/portfolio1.mp4" | relURL }}"
+                 data-video2="{{ "videos/portfolio2.mp4" | relURL }}">
+                <div class="flex items-center justify-center gap-4 md:gap-6 w-full h-full" id="videoportfolio-slides-container">
+                    <!-- Cards will be dynamically inserted here by JS -->
+                    <!-- Template structure:
+                    <div class="videoportfolio-card" data-state="prev|active|next" data-index="0|1|2">
+                        <div class="relative rounded-2xl md:rounded-3xl overflow-hidden transition-all duration-500 ease-out">
+                            <div class="aspect-video relative">
+                                <video|img> with poster/fallback
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            </div>
+                            <div class="absolute top-4 left-4 z-10">
+                                <span class="badge">AI VIDEO</span>
+                            </div>
+                            <div class="absolute bottom-4 left-4 z-10">
+                                <div class="tools-row">...</div>
+                            </div>
+                            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-10">
+                                <span class="label">AI VOICEOVER</span>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                </div>
+                
+                <!-- Navigation Arrows - positioned on side cards, above all cards -->
+                <button 
+                    id="videoportfolio-prev" 
+                    class="absolute left-0 md:left-[10%] top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-md hover:bg-white/20 border border-white/20 text-white w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all duration-200 shadow-lg z-50"
+                    aria-label="Previous slide"
+                >
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button 
+                    id="videoportfolio-next" 
+                    class="absolute right-0 md:right-[10%] top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-md hover:bg-white/20 border border-white/20 text-white w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all duration-200 shadow-lg z-50"
+                    aria-label="Next slide"
+                >
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{/* Load from static directory to avoid Hugo Pipes caching issues */}}
+<script defer src="{{ "js/videoportfolio.js" | relURL }}?v={{ now.Unix }}"></script>
+
+<style>
+/* Container for smooth transitions */
+#videoportfolio-slides-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    min-height: 400px;
+}
+
+#videoportfolio-slides-container.transitioning {
+    transition: all 700ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Card states with proper z-index layering */
+.videoportfolio-card {
+    position: relative;
+    transition: transform 700ms cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 700ms ease-out;
+    will-change: transform, opacity;
+    transform-origin: center center;
+}
+
+.videoportfolio-card[data-state="active"] {
+    z-index: 30;
+    transform: translateX(0) scale(0.85) !important;
+}
+
+.videoportfolio-card[data-state="prev"] {
+    z-index: 10;
+    transform: translateX(12rem) scale(0.85) !important;
+}
+
+.videoportfolio-card[data-state="next"] {
+    z-index: 20;
+    transform: translateX(-12rem) scale(0.85) !important;
+}
+
+/* Ensure side cards are visually behind active card */
+.videoportfolio-card[data-state="prev"]::before,
+.videoportfolio-card[data-state="next"]::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: inherit;
+}
+
+/* Smooth card content transitions */
+.videoportfolio-card > * {
+    transition: transform 700ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .videoportfolio-card,
+    .videoportfolio-card *,
+    #videoportfolio-slides-container {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* Ensure navigation buttons are always on top */
+#videoportfolio-prev,
+#videoportfolio-next {
+    z-index: 50 !important;
+    pointer-events: auto;
+}
+
+/* Mobile: overlay arrows on active card */
+@media (max-width: 768px) {
+    #videoportfolio-prev {
+        left: 1rem;
+        z-index: 50 !important;
+    }
+    #videoportfolio-next {
+        right: 1rem;
+        z-index: 50 !important;
+    }
+    
+    .videoportfolio-card[data-state="prev"],
+    .videoportfolio-card[data-state="next"] {
+        display: none;
+    }
+}
+</style>
