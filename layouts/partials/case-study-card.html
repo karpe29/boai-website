@@ -3,7 +3,7 @@
         <!-- Column 1: Brand Logo/Icon - Square with rounded corners matching outer box -->
         <div class="w-full md:w-[250px] md:h-[250px] bg-[#2c2c2c] border-r border-white/10 rounded-tl-2xl rounded-bl-2xl md:rounded-tr-none md:rounded-br-none flex items-center justify-center overflow-hidden">
             {{ if .logo }}
-                <img src="images/{{ .logo }}" alt="{{ .company }} Logo" class="w-full h-full object-contain p-8">
+                <img src="{{ (printf "images/%s" .logo) | relURL }}" alt="{{ .company }} Logo" class="w-full h-full object-contain p-8">
             {{ else }}
                 <span class="text-accent font-bold text-4xl">{{ substr .company 0 2 }}</span>
             {{ end }}
