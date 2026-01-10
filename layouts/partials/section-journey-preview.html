@@ -7,274 +7,223 @@
   Optional data source: .Site.Params.journey or content/data/journey.yaml
 */}}
 
-<section id="journey-preview" class="relative">
+<section id="journey-preview" class="relative bg-primary-dark py-12 lg:py-20">
   
-  {{/* ============================================ */}}
-  {{/* PART A: SCRIPTLAB (SELF-SERVE) */}}
-  {{/* ============================================ */}}
-  
-  <div class="bg-primary py-12 md:py-20">
-    <div class="max-w-6xl mx-auto px-6 md:px-12">
+  {{/* Centered Container */}}
+  <div class="relative w-full mx-auto my-24 px-6 md:px-8 lg:px-12" style="max-width:90rem;">
+    {{/* Background Radial Gradients */}}
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-0 left-1/4 w-96 h-96 rounded-full opacity-30 bg-primary-light/40 blur-3xl" style="transform: translate(-50%, -30%);"></div>
+      <div class="absolute top-1/2 right-1/4 w-96 h-96 rounded-full opacity-10 bg-accent blur-3xl" style="transform: translate(50%, -50%);"></div>
+    </div>
+    
+    {{/* Two Card Container with Global Connector Line */}}
+    <div class="relative z-10">
+      {{/* Global horizontal line connecting all icons across both cards - only on desktop */}}
+      {{/* Positioned at icon center: padding(2rem) + badge(3rem) + headline(4rem) + icon-top(1.25rem) + icon-center(1.5rem) = ~12rem */}}
+      <div class="hidden lg:block absolute top-[13rem] left-[6rem] right-[8rem] h-0.5 bg-orange-500/30 z-10"></div>
       
-      {{/* Eyebrow + Badge */}}
-      <div class="flex items-center gap-3 mb-4">
-        <span class="text-sm uppercase tracking-wide text-accent font-semibold">
-          {{ .Site.Params.journey.partA.eyebrow | default "Try This First" }}
-        </span>
-        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-accent text-white">
-          {{ .Site.Params.journey.partA.badge | default "FREE" }}
-        </span>
-      </div>
-      
-      {{/* Headline */}}
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">
-        {{ .Site.Params.journey.partA.headline | default "Research-Backed Scripts in Minutes" }}
-      </h2>
-      
-      {{/* Animation Container - Placeholder for future animation */}}
-      <div class="w-full max-w-4xl mx-auto mb-8 bg-primary-dark border border-primary-light rounded-2xl p-8">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-0">
+        
+        {{/* LEFT CARD - Green Accents (Script Generation) */}}
+        <div class="relative  bg-primary-dark border-r border-primary-light p-6 lg:p-8 ">
           
-          {{/* Step 1: Brief Input */}}
-          <div class="flex flex-col items-center text-center flex-1">
-            <svg class="w-10 h-10 text-accent mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-            <span class="text-base font-semibold text-white mb-1">Brief Input</span>
-            <span class="text-sm text-gray-400">Your requirements</span>
+          {{/* Badge with Ping Animation - Green */}}
+          <div class="flex items-center gap-2 mb-4">
+            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider border border-green-500/50 bg-green-500/10 backdrop-blur-xl">
+              <span class="text-white/90">{{ .Site.Params.journey.partA.eyebrow | default "START HERE" }}</span>
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              </span>
+            </span>
+            <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider border border-green-500/50 bg-green-500/10 text-green-400">
+              Do It Yourself
+            </span>
           </div>
           
-          {{/* Arrow - Desktop: Right, Mobile: Down */}}
-          <div class="hidden md:block text-2xl text-gray-400">→</div>
-          <div class="md:hidden text-2xl text-gray-400">↓</div>
+          {{/* Headline - Green */}}
+          <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 lg:mb-16 leading-tight text-white">
+            Research-Backed Scripts
+          </h2>
           
-          {{/* Step 2: Research */}}
-          <div class="flex flex-col items-center text-center flex-1">
-            <svg class="w-10 h-10 text-accent mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-            <span class="text-base font-semibold text-white mb-1">Research</span>
-            <span class="text-sm text-gray-400">19 ads analyzed</span>
+          {{/* Horizontal Stepper - Left Card (4 steps) */}}
+          <div class="relative w-full mb-6 lg:mb-16">
+            {{/* Local connector line - extends to card edges to connect with global line on desktop */}}
+            <!-- <div class="hidden md:block absolute top-5 left-0 right-0 h-0.5 bg-orange-500/30 z-0"></div> -->
+          
+          <div class="relative flex flex-row items-center justify-between gap-2">
+            
+            {{/* Step 1: Brief */}}
+            <div class="flex flex-col items-center text-center flex-1 relative z-10">
+              <div class="w-12 h-12 rounded-full bg-primary-dark border-2 border-orange-500 flex items-center justify-center mb-2 shadow-lg shadow-orange-500/20 relative z-10">
+                <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <span class="block text-xs font-bold text-white mb-0.5">Brief</span>
+              <!-- <span class="text-xs text-gray-400">Your requirement</span> -->
+            </div>
+            
+            {{/* Step 2: Research & Analysis */}}
+            <div class="flex flex-col items-center text-center flex-1 relative z-10">
+              <div class="w-12 h-12 rounded-full bg-primary-dark border-2 border-orange-500 flex items-center justify-center mb-2 shadow-lg shadow-orange-500/20 relative z-10">
+                <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+              <span class="block text-xs font-bold text-white mb-0.5">Research & Analysis</span>
+              <!-- <span class="text-xs text-gray-400">19 ads analyzed</span> -->
+            </div>
+            
+            {{/* Step 3: Strategy Report */}}
+            <div class="flex flex-col items-center text-center flex-1 relative z-10">
+              <div class="w-12 h-12 rounded-full bg-primary-dark border-2 border-orange-500 flex items-center justify-center mb-2 shadow-lg shadow-orange-500/20 relative z-10">
+                <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-3zM14 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1h-4a1 1 0 01-1-1v-3z" />
+                </svg>
+              </div>
+              <span class="block text-xs font-bold text-white mb-0.5">Strategy Report</span>
+              <!-- <span class="text-xs text-gray-400">Persona insights</span> -->
+            </div>
+            
+            {{/* Step 4: Scripts */}}
+            <div class="flex flex-col items-center text-center flex-1 relative z-10">
+              <div class="w-12 h-12 rounded-full bg-primary-dark border-2 border-orange-500 flex items-center justify-center mb-2 shadow-lg shadow-orange-500/20 relative z-10">
+                <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <span class="block text-xs font-bold text-white mb-0.5">Scripts</span>
+              <!-- <span class="text-xs text-gray-400">9/10 rating</span> -->
+            </div>
+            
           </div>
-          
-          {{/* Arrow */}}
-          <div class="hidden md:block text-2xl text-gray-400">→</div>
-          <div class="md:hidden text-2xl text-gray-400">↓</div>
-          
-          {{/* Step 3: Strategy Report */}}
-          <div class="flex flex-col items-center text-center flex-1">
-            <svg class="w-10 h-10 text-accent mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-3zM14 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1h-4a1 1 0 01-1-1v-3z" />
-            </svg>
-            <span class="text-base font-semibold text-white mb-1">6-box Strategy Report</span>
-            <span class="text-sm text-gray-400">Persona insights</span>
-          </div>
-          
-          {{/* Arrow */}}
-          <div class="hidden md:block text-2xl text-gray-400">→</div>
-          <div class="md:hidden text-2xl text-gray-400">↓</div>
-          
-          {{/* Step 4: Script Output */}}
-          <div class="flex flex-col items-center text-center flex-1">
-            <svg class="w-10 h-10 text-accent mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-            <span class="text-base font-semibold text-white mb-1">Script Output</span>
-            <span class="text-sm text-gray-400">9/10 rating</span>
-          </div>
-          
         </div>
+        
+        {{/* CTA Button - Green */}}
+        <div class="mt-6 flex justify-center">
+          <a 
+            href="{{ .Site.Params.journey.partA.ctaUrl | default "#scriptlab-demo" }}" 
+            class="group relative inline-block px-8 py-4 rounded-lg font-semibold text-lg overflow-hidden transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary-dark focus:ring-green-500 bg-white/10 backdrop-blur-xl border border-green-500/50 hover:border-green-500 text-green-400 hover:text-green-300 text-center"
+            aria-label="Get 2 Free Scripts"
+          >
+            <span class="relative z-10">{{ .Site.Params.journey.partA.ctaText | default "Get 2 Free Scripts" }}</span>
+            <span class="shimmer-animation absolute inset-0" style="background: linear-gradient(90deg, transparent 0%, rgba(34, 197, 94, 0.3) 50%, transparent 100%); width: 30%;"></span>
+          </a>
+        </div>
+        <div class="mb-6 mt-2">
+            <p class="text-xs text-gray-400 text-center">in Minutes</p>
+          </div>
+        
       </div>
       
-      {{/* What You Get List */}}
-      <ul class="space-y-3 mb-8">
-        <li class="flex items-start gap-3">
-          <svg class="w-4 h-4 text-accent mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-          </svg>
-          <div>
-            <span class="text-base text-white leading-relaxed">
-              Competitor analysis
-              <span class="text-sm text-gray-400"> (19 video ads)</span>
+      {{/* RIGHT CARD - Orange Accents (Video Production) */}}
+      <div class="relative  bg-primary-dark  p-6 lg:p-8 ">
+        
+        {{/* Badge with Ping Animation - Orange */}}
+        <div class="flex items-center gap-2 mb-4">
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider border border-orange-500/50 bg-orange-500/10 backdrop-blur-xl">
+            <span class="text-white/90">{{ .Site.Params.journey.partB.eyebrow | default "NEED VIDEOS?" }}</span>
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
             </span>
+          </span>
+          <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider border border-orange-500/50 bg-orange-500/10 text-orange-400">
+            DONE FOR YOU
+          </span>
+        </div>
+        
+        {{/* Headline - Orange */}}
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 lg:mb-16 leading-tight text-white">
+          We take it from here
+        </h2>
+        
+        {{/* Horizontal Stepper - Right Card (3 steps) */}}
+        <div class="relative w-full mb-6 lg:mb-16">
+          {{/* Local connector line - extends to card edges to connect with global line on desktop */}}
+          <!-- <div class="hidden md:block absolute top-5 left-0 right-0 h-0.5 bg-orange-500/30 z-0"></div> -->
+          
+          <div class="relative flex flex-row items-center justify-between gap-2">
+            
+            {{/* Step 1: Storyboard */}}
+            <div class="flex flex-col items-center text-center flex-1 relative z-10">
+              <div class="w-12 h-12 rounded-full bg-primary-dark border-2 border-orange-500 flex items-center justify-center mb-2 shadow-lg shadow-orange-500/20 relative z-10">
+                <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <span class="block text-xs font-bold text-white mb-0.5">Storyboard</span>
+              <!-- <span class="text-xs text-gray-400">VisualStudio</span> -->
+            </div>
+            
+            {{/* Step 2: Master Video */}}
+            <div class="flex flex-col items-center text-center flex-1 relative z-10">
+              <div class="w-12 h-12 rounded-full bg-primary-dark border-2 border-orange-500 flex items-center justify-center mb-2 shadow-lg shadow-orange-500/20 relative z-10">
+                <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <span class="block text-xs font-bold text-white mb-0.5">Master Video</span>
+              <!-- <span class="text-xs text-gray-400">AdLab</span> -->
+            </div>
+            
+            {{/* Step 3: Personalized Videos */}}
+            <div class="flex flex-col items-center text-center flex-1 relative z-10">
+              <div class="w-12 h-12 rounded-full bg-primary-dark border-2 border-orange-500 flex items-center justify-center mb-2 shadow-lg shadow-orange-500/20 relative z-10">
+                <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <span class="block text-xs font-bold text-white mb-0.5">Personalized Videos</span>
+              <!-- <span class="text-xs text-gray-400">VariantEngine</span> -->
+            </div>
+            
           </div>
-        </li>
-        <li class="flex items-start gap-3">
-          <svg class="w-4 h-4 text-accent mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-          </svg>
-          <div>
-            <span class="text-base text-white leading-relaxed">
-              Persona insights
-              <span class="text-sm text-gray-400"> (6-box Strategy Report)</span>
-            </span>
+        </div>
+        
+        {{/* Timeline Info */}}
+        
+        
+        {{/* CTA Button - Orange */}}
+        <div class="mt-6 flex justify-center">
+          <a 
+            href="{{ .Site.Params.journey.partB.ctaUrl | default "#contact" }}" 
+            class="group relative inline-block px-8 py-4 rounded-lg font-semibold text-lg overflow-hidden transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary-dark focus:ring-accent bg-white/10 backdrop-blur-xl border border-accent/50 hover:border-accent text-accent hover:text-accent-light text-center"
+            aria-label="Talk to Founding Team"
+          >
+            <span class="relative z-10">{{ .Site.Params.journey.partB.ctaText | default "Talk to Founding Team" }}</span>
+            <span class="shimmer-animation absolute inset-0" style="background: linear-gradient(90deg, transparent 0%, rgba(249, 115, 22, 0.3) 50%, transparent 100%); width: 30%;"></span>
+          </a>
+        </div>
+        <div class="mb-6 mt-2">
+            <p class="text-xs text-gray-400 text-center">Timeline: 2-4 days from approved script</p>
           </div>
-        </li>
-        <li class="flex items-start gap-3">
-          <svg class="w-4 h-4 text-accent mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-          </svg>
-          <div>
-            <span class="text-base text-white leading-relaxed">
-              Tested hooks & CTAs
-              <span class="text-sm text-gray-400"> (9/10-rated scripts)</span>
-            </span>
-          </div>
-        </li>
-      </ul>
+        
+      </div>
       
-      {{/* CTA Button */}}
-      <a 
-        href="{{ .Site.Params.journey.partA.ctaUrl | default "#scriptlab-demo" }}" 
-        class="inline-block w-full md:w-auto md:max-w-[300px] text-center bg-accent hover:bg-accent-light text-white font-semibold px-8 py-4 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
-        aria-label="Get 2 Free Scripts"
-      >
-        {{ .Site.Params.journey.partA.ctaText | default "Get 2 Free Scripts" }}
-      </a>
-      
+      </div>
     </div>
   </div>
   
-  {{/* ============================================ */}}
-  {{/* DIVIDER BETWEEN PARTS */}}
-  {{/* ============================================ */}}
-  
-  <div class="h-px bg-gradient-to-r from-transparent via-primary-light to-transparent my-12"></div>
-  
-  {{/* ============================================ */}}
-  {{/* PART B: FULL VIDEO (MANAGED SERVICE) */}}
-  {{/* ============================================ */}}
-  
-  <div class="bg-primary-dark py-12 md:py-20">
-    <div class="max-w-6xl mx-auto px-6 md:px-12">
-      
-      {{/* Eyebrow + Badge */}}
-      <div class="flex items-center gap-3 mb-4">
-        <span class="text-sm uppercase tracking-wide text-accent font-semibold">
-          {{ .Site.Params.journey.partB.eyebrow | default "Need Videos?" }}
-        </span>
-        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-accent text-white">
-          {{ .Site.Params.journey.partB.badge | default "DONE FOR YOU" }}
-        </span>
-      </div>
-      
-      {{/* Headline */}}
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">
-        {{ .Site.Params.journey.partB.headline | default "We Handle the Rest" }}
-      </h2>
-      
-      {{/* Workflow Boxes - 4-step horizontal flow (desktop) / vertical stack (mobile) */}}
-      <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-8">
-        
-        {{/* Box 1: Scripts */}}
-        <div class="w-full md:w-[140px] h-[120px] bg-primary border border-primary-light rounded-lg p-4 flex flex-col items-center justify-center hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200">
-          <svg class="w-10 h-10 text-accent mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-          </svg>
-          <span class="text-sm font-semibold text-white">Scripts</span>
-        </div>
-        
-        {{/* Arrow Connector - Desktop: Right, Mobile: Down */}}
-        <div class="hidden md:block text-2xl text-gray-400">→</div>
-        <div class="md:hidden text-2xl text-gray-400">↓</div>
-        
-        {{/* Box 2: Storyboard */}}
-        <div class="w-full md:w-[140px] h-[120px] bg-primary border border-primary-light rounded-lg p-4 flex flex-col items-center justify-center hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200">
-          <svg class="w-10 h-10 text-accent mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-          </svg>
-          <span class="text-sm font-semibold text-white">Storyboard</span>
-        </div>
-        
-        {{/* Arrow Connector */}}
-        <div class="hidden md:block text-2xl text-gray-400">→</div>
-        <div class="md:hidden text-2xl text-gray-400">↓</div>
-        
-        {{/* Box 3: Master Video */}}
-        <div class="w-full md:w-[140px] h-[120px] bg-primary border border-primary-light rounded-lg p-4 flex flex-col items-center justify-center hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200">
-          <svg class="w-10 h-10 text-accent mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-          </svg>
-          <span class="text-sm font-semibold text-white">Master Video</span>
-        </div>
-        
-        {{/* Arrow Connector */}}
-        <div class="hidden md:block text-2xl text-gray-400">→</div>
-        <div class="md:hidden text-2xl text-gray-400">↓</div>
-        
-        {{/* Box 4: Video Variants */}}
-        <div class="w-full md:w-[140px] h-[120px] bg-primary border border-primary-light rounded-lg p-4 flex flex-col items-center justify-center hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200">
-          <svg class="w-10 h-10 text-accent mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-3zM14 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1h-4a1 1 0 01-1-1v-3z" />
-          </svg>
-          <span class="text-sm font-semibold text-white">Video Variants</span>
-        </div>
-        
-      </div>
-      
-      {{/* What's Included List */}}
-      <ul class="space-y-3 mt-8 mb-6">
-        <li class="flex items-start gap-3">
-          <svg class="w-4 h-4 text-accent mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-          </svg>
-          <div>
-            <span class="text-base text-white leading-relaxed">
-              Brand-aligned visuals & storyboarding
-              <span class="text-sm text-gray-400"> (VisualStudio)</span>
-            </span>
-          </div>
-        </li>
-        <li class="flex items-start gap-3">
-          <svg class="w-4 h-4 text-accent mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-          </svg>
-          <div>
-            <span class="text-base text-white leading-relaxed">
-              Professional video production
-              <span class="text-sm text-gray-400"> (AdLab)</span>
-            </span>
-          </div>
-        </li>
-        <li class="flex items-start gap-3">
-          <svg class="w-4 h-4 text-accent mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-          </svg>
-          <div>
-            <span class="text-base text-white leading-relaxed">
-              12 persona × platform variants
-              <span class="text-sm text-gray-400"> (VariantEngine)</span>
-            </span>
-          </div>
-        </li>
-        <li class="flex items-start gap-3">
-          <svg class="w-4 h-4 text-accent mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-          </svg>
-          <div>
-            <span class="text-base text-white leading-relaxed">
-              Compliance checking throughout
-              <span class="text-sm text-gray-400"> (BrandDNA)</span>
-            </span>
-          </div>
-        </li>
-      </ul>
-      
-      {{/* Timeline Text */}}
-      <p class="text-base italic text-gray-400 mb-8">
-        {{ .Site.Params.journey.partB.timeline | default "Timeline: 5-7 days from approved script" }}
-      </p>
-      
-      {{/* CTA Button */}}
-      <a 
-        href="{{ .Site.Params.journey.partB.ctaUrl | default "#contact" }}" 
-        class="inline-block w-full md:w-auto md:max-w-[300px] text-center border-2 border-accent text-accent hover:bg-accent hover:text-white font-semibold px-8 py-4 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary-dark"
-        aria-label="Talk to Founding Team"
-      >
-        {{ .Site.Params.journey.partB.ctaText | default "Talk to Founding Team" }}
-      </a>
-      
-    </div>
-  </div>
+  {{/* Custom CSS for Animations */}}
+  <style>
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-150%) skewX(-15deg);
+      }
+      50% {
+        transform: translateX(500%) skewX(-15deg);
+      }
+      100% {
+        transform: translateX(500%) skewX(-15deg);
+      }
+    }
+    
+    .shimmer-animation {
+      animation: shimmer 3s ease-in-out infinite;
+    }
+  </style>
   
 </section>
