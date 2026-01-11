@@ -308,6 +308,7 @@
         // Get video paths from data attributes (set by Hugo template)
         const video1Path = carousel.getAttribute('data-video1') || '/videos/portfolio1.mp4';
         const video2Path = carousel.getAttribute('data-video2') || '/videos/portfolio2.mp4';
+        const video3Path = carousel.getAttribute('data-video3') || '/videos/portfolio3.mp4';
 
         // Configuration - Using available portfolio videos
         // Update the outer scope SLIDES array
@@ -337,10 +338,10 @@
                 ]
             },
             {
-                id: 'portfolio1-repeat',
+                id: 'portfolio3',
                 label: 'AI IMAGE',
                 type: 'video',
-                src: video1Path,
+                src: video3Path,
                 poster: null,
                 badge: null,
                 tools: []

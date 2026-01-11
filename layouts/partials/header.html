@@ -2,18 +2,18 @@
     <nav class="container mx-auto px-6 py-4">
         <div id="header-wrapper" class="flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <a href="{{ "/" | relURL }}" class="flex items-center gap-3">
+                <a href="{{ "/boai-website/" | absURL }}" class="flex items-center gap-3">
                     <img src="{{ "images/logos/CAT_01.png" | relURL }}" alt="BlinkofAI Logo" class="h-8 w-auto">
                     <span class="text-2xl font-bold text-white">BlinkofAI</span>
                 </a>
             </div>
             
             <div id="nav-links" class="hidden md:flex items-center space-x-8">
-                <a href="{{ "/case-studies/" | relURL }}" class="nav-link text-white hover:text-accent transition-colors duration-200">
+                <a href="{{ "case-studies/" | relURL }}" class="nav-link text-white hover:text-accent transition-colors duration-200">
                     Case Studies
                 </a>
                
-                <a href="{{ "/pricing/" | absURL }}" class="nav-link text-white hover:text-accent transition-colors duration-200">
+                <a href="{{ "pricing/" | relURL }}" class="nav-link text-white hover:text-accent transition-colors duration-200">
                     Pricing
                 </a>
                 <a href="#contact" class="cta-button bg-accent hover:bg-accent-light text-white px-6 py-2 rounded-lg font-semibold transition-all duration-200">
