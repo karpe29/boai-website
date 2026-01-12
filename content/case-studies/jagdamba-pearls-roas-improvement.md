@@ -4,6 +4,8 @@ date: 2025-01-23
 client: "Jagdamba Pearls"
 industry: "Jewellery"
 featured_image: "/boai-website/images/case-studies/jpearls-case-study.png"
+titleshort: 46% Higher ROAS in Festive Campaign 
+description: Scaled 4.5× during peak season with research-backed festive hooks and video variations 
 challenge: "Festive jewellery campaigns operate under intense pressure: demand spikes sharply, but competition spikes faster. Creative fatigue sets in within days, and scaling spend often kills efficiency. Jagdamba Pearls had already run a conversion-focused Rakhi campaign using internally produced creatives. The challenge was clear: Could festive scale be unlocked without sacrificing ROAS and cost efficiency?"
 solution: |
   BlinkofAI partnered with Jagdamba Pearls on the Shubh Utsav Dhamaka '25 campaign with the objective to scale festive conversion volume aggressively on Meta, without CPM inflation or ROAS drop-off.

@@ -22,26 +22,29 @@
 <section class="py-2 md:py-4 {{ .bgClass }}">
     <div class="container mx-auto px-6">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-8">
-                <!-- <div class="flex items-center justify-center gap-3 mb-2">
-                    <h2 class="text-4xl font-bold text-white">{{ .title }}</h2>
-                    {{ if .badge }}
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-accent/20 text-accent border border-accent/50">
-                        {{ .badge }}
-                    </span>
+            <!-- Subtitle and Badge Section -->
+            {{ if or .subtitle .badge }}
+            <div class="text-center mb-6">
+                {{ if .badge }}
+                <div class="flex items-center justify-center gap-2 mb-3 flex-wrap">
+                    {{ if eq (printf "%T" .badge) "[]string" }}
+                        {{ range .badge }}
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-accent/20 text-accent border border-accent/50">
+                            {{ . }}
+                        </span>
+                        {{ end }}
+                    {{ else }}
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-accent/20 text-accent border border-accent/50">
+                            {{ .badge }}
+                        </span>
                     {{ end }}
                 </div>
+                {{ end }}
                 {{ if .subtitle }}
-                <p class="text-gray-400 text-lg">{{ .subtitle }}</p>
+                <p class="text-gray-300 text-lg md:text-xl">{{ .subtitle }}</p>
                 {{ end }}
-                {{ if .tryButton }}
-                <div class="mt-6">
-                    <a href="{{ .tryButton.url | default "#contact" }}" class="inline-block bg-accent hover:bg-accent-light text-white px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105 shadow-lg shadow-accent/50">
-                        {{ .tryButton.text | default "Try Now" }}
-                    </a>
-                </div>
-                {{ end }}
-            </div> -->
+            </div>
+            {{ end }}
             
             <!-- Box Container: Tabs on Left, Video on Right -->
             <div class="flex flex-col md:flex-row border-2 border-primary-light bg-primary-dark overflow-hidden" style="min-height: 400px;">

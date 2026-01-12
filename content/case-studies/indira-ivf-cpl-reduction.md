@@ -4,6 +4,8 @@ date: 2025-01-22
 client: "Indira IVF"
 industry: "Healthcare"
 featured_image: "/boai-website/images/case-studies/indiraivf-case-study.png"
+titleshort : Cut CPL by 50% with Regional Video Ads 
+description : Localized messaging in 8 regional languages for high-stakes fertility campaign. 
 challenge: "Indira IVF runs performance campaigns in a category where decisions are emotional and high stakes, misinformation is common, and creative mistakes are expensive. The brand faced two consistent constraints: (1) Scale - reach millions without CPL blow-ups, and (2) Trust - communicate clarity without overwhelming viewers. Generic templates and long-form explanations don't work in this high-consideration healthcare category. Performance requires controlled creativity."
 solution: |
   BlinkofAI partnered with Indira IVF on a Festive Conversion Campaign featuring a ₹25,000 discount offer, optimized for lead generation. Instead of creating one generic "festival ad," BlinkofAI delivered:
