@@ -166,6 +166,41 @@ function setupVideoGrid() {
     }
 }
 
+// Function to load video metadata and get dimensions
+async function loadVideoDimensions(video) {
+    return new Promise((resolve) => {
+        // If aspect ratio already loaded, return it
+        if (video.aspectRatio) {
+            resolve(video.aspectRatio);
+            return;
+        }
+        
+        const videoEl = document.createElement('video');
+        videoEl.preload = 'metadata';
+        videoEl.src = video.src;
+        
+        videoEl.addEventListener('loadedmetadata', () => {
+            const aspectRatio = videoEl.videoWidth / videoEl.videoHeight;
+            video.aspectRatio = aspectRatio;
+            video.width = videoEl.videoWidth;
+            video.height = videoEl.videoHeight;
+            resolve(aspectRatio);
+        });
+        
+        videoEl.addEventListener('error', () => {
+            // Fallback to 16:9 if video fails to load
+            video.aspectRatio = 16/9;
+            resolve(16/9);
+        });
+    });
+}
+
+// Function to load all video dimensions
+async function loadAllVideoDimensions(videos) {
+    const promises = videos.map(video => loadVideoDimensions(video));
+    await Promise.all(promises);
+}
+
 function createMosaicGrid() {
     // ============================================
     // CONFIGURATION: Change this to adjust row height
@@ -176,17 +211,101 @@ function createMosaicGrid() {
     const container = document.getElementById('video-mosaic-grid');
     
     // Initialize all videos with categories (only on first load)
+    // GCP Bucket Base URL
+    const GCP_BUCKET_BASE_URL = "https://storage.googleapis.com/blinkofai-portfolio-videos-20260114/";
+    
     if (allVideos.length === 0) {
         allVideos = [
-            { src: "{{ "videos/portfolio1.mp4" | relURL }}", title: "Portfolio Video 1", category: "portfolio" },
-            { src: "{{ "videos/portfolio2.mp4" | relURL }}", title: "Portfolio Video 2", category: "portfolio" },
-            { src: "{{ "videos/demoVideo.mp4" | relURL }}", title: "Demo Video", category: "demo" },
-            { src: "{{ "videos/portfolio1.mp4" | relURL }}", title: "Portfolio Video 1", category: "portfolio" },
-            { src: "{{ "videos/portfolio2.mp4" | relURL }}", title: "Portfolio Video 2", category: "portfolio" },
-            { src: "{{ "videos/demoVideo.mp4" | relURL }}", title: "Demo Video", category: "demo" },
-            { src: "{{ "videos/portfolio1.mp4" | relURL }}", title: "Portfolio Video 1", category: "portfolio" },
-            { src: "{{ "videos/portfolio2.mp4" | relURL }}", title: "Portfolio Video 2", category: "portfolio" },
-            { src: "{{ "videos/demoVideo.mp4" | relURL }}", title: "Demo Video", category: "demo" }
+            { 
+                src: GCP_BUCKET_BASE_URL + "CANCUN/Cancun%20Pre%20Reg.mp4", 
+                title: "OYO Cancun", 
+                category: "brand-visuals",
+                tags: ["Supers", "Brand Visuals", "AI enhanced", "On-Brand"]
+            },
+            { 
+                src: GCP_BUCKET_BASE_URL + "PrimeBook/Primebook_video.mp4", 
+                title: "Primebook", 
+                category: "ai-animation",
+                tags: ["Supers", "Brand Visuals", "AI Animation", "On-Brand"]
+            },
+            { 
+                src: GCP_BUCKET_BASE_URL + "EMT/Final_1_v5_Vo.mp4", 
+                title: "EMT", 
+                category: "ai-visuals",
+                tags: ["Supers", "VO", "AI Visuals", "On-Brand"]
+            },
+            { 
+                src: GCP_BUCKET_BASE_URL + "OYO%20BELVILLA/English%20V3.mp4", 
+                title: "OYO Belville", 
+                category: "brand-visuals",
+                tags: ["Supers", "VO", "Brand Visuals", "On-Brand"]
+            },
+            { 
+                src: GCP_BUCKET_BASE_URL + "ABSLI/ABSLI_v2.mp4", 
+                title: "ABSLI Farhan Akhtar", 
+                category: "brand-visuals",
+                tags: ["Supers", "VO", "Brand Visuals", "On-Brand"]
+            },
+            { 
+                src: GCP_BUCKET_BASE_URL + "HDFC/HDFC%202.mp4", 
+                title: "HDFC ETF", 
+                category: "ai-animation",
+                tags: ["Supers", "VO", "Stock", "AI Animation", "On-Brand"]
+            },
+            { 
+                src: GCP_BUCKET_BASE_URL + "ICICI/ICICI_Video_2_New_v3.mp4", 
+                title: "ICICI Orange Book", 
+                category: "ai-animation",
+                tags: ["Supers", "VO", "Brand Visuals", "AI Animation", "On-Brand"]
+            },
+            { 
+                src: GCP_BUCKET_BASE_URL + "Indira%20IVF/IVF_new%20year_v5.mp4", 
+                title: "Indira IVF New Years", 
+                category: "ai-visuals",
+                tags: ["Supers", "VO", "AI Visuals", "On-Brand"]
+            },
+            { 
+                src: GCP_BUCKET_BASE_URL + "Kotak/Script6_Kotak_v6.mp4", 
+                title: "Kotak Script 6", 
+                category: "ai-animation",
+                tags: ["Supers", "VO", "Stock", "AI Visuals", "AI Animation", "On-Brand"]
+            },
+            { 
+                src: GCP_BUCKET_BASE_URL + "SCALER/Scaler_Master_Script%204.mp4", 
+                title: "Scaler", 
+                category: "ai-avatar",
+                tags: ["Supers", "VO", "AI Avatar", "On-Brand"]
+            },
+            { 
+                src: GCP_BUCKET_BASE_URL + "Coggi/Coggi_video_v7.mp4", 
+                title: "Coggi", 
+                category: "ai-animation",
+                tags: ["Supers", "VO", "Brand Visuals", "AI Visuals", "AI Animation", "On-Brand"]
+            },
+            { 
+                src: GCP_BUCKET_BASE_URL + "Paragon/Eeken%20EVA%20shoes_v9.mp4", 
+                title: "Paragon Eeken", 
+                category: "product-accuracy",
+                tags: ["Supers", "VO", "Product Accuracy"]
+            },
+            { 
+                src: GCP_BUCKET_BASE_URL + "Urban%20Money/UrbanMoney_Cap_v5.mp4", 
+                title: "Urban Monkey", 
+                category: "product-consistency",
+                tags: ["Supers", "Product Consistency", "AI Animation", "AI Visuals", "On-Brand"]
+            },
+            { 
+                src: GCP_BUCKET_BASE_URL + "JPEARLS%20EARRINGS/Jpearls%20Earrings.mp4", 
+                title: "JPearls Earrings", 
+                category: "product-accuracy",
+                tags: ["Supers", "VO", "Product Accuracy", "AI Visuals", "On-Brand"]
+            },
+            { 
+                src: GCP_BUCKET_BASE_URL + "OYO%20Traum/Traum%20English%2016x9.mp4", 
+                title: "Traum", 
+                category: "ai-avatar",
+                tags: ["Supers", "VO", "AI Avatar", "Character Consistency", "Brand Visuals", "On-Brand"]
+            }
         ];
     }
     
@@ -195,31 +314,39 @@ function createMosaicGrid() {
         ? allVideos 
         : allVideos.filter(video => video.category === currentCategory);
     
+    // Load video dimensions first, then create grid
+    loadAllVideoDimensions(videos).then(() => {
+        createGridLayout(videos, container, TARGET_ROW_HEIGHT);
+    });
+}
+
+function createGridLayout(videos, container, TARGET_ROW_HEIGHT) {
     const gap = 20;
-    const containerPadding = 10;
+    const containerPadding = 0; // No side padding
     
     // Get container width
     function getContainerWidth() {
         const computedStyle = window.getComputedStyle(container);
         const padding = parseFloat(computedStyle.paddingLeft) + parseFloat(computedStyle.paddingRight);
-        return container.offsetWidth - padding || container.parentElement.offsetWidth - 48;
+        return container.offsetWidth - padding || container.parentElement.offsetWidth;
     }
     
     const containerWidth = getContainerWidth();
-    const availableWidth = containerWidth - (containerPadding * 2);
+    const availableWidth = containerWidth; // Full width, no side padding
     
-    // Aspect ratios for mosaic effect
-    const aspectRatios = [16/9, 4/3, 1/1, 3/4, 9/16, 21/9, 16/9, 4/3, 1/1];
-    
-    // Calculate layout using justified layout algorithm
+    // Calculate layout using justified layout algorithm with actual video aspect ratios
     const boxes = [];
     let currentRow = [];
     let currentRowWidth = 0;
-    let currentTop = containerPadding;
+    let currentTop = 0; // No top padding
     
-    videos.forEach((video, index) => {
-        const aspectRatio = aspectRatios[index % aspectRatios.length];
-        const boxHeight = TARGET_ROW_HEIGHT; // Use fixed row height
+    videos.forEach((video) => {
+        // Use actual video aspect ratio
+        const aspectRatio = video.aspectRatio || 16/9; // Fallback to 16:9 if not loaded
+        
+        // Calculate dimensions: constrain height to TARGET_ROW_HEIGHT, then calculate width
+        // This ensures all videos in a row have the same height
+        const boxHeight = TARGET_ROW_HEIGHT;
         const boxWidth = boxHeight * aspectRatio;
         
         // Check if this box fits in current row
@@ -232,26 +359,31 @@ function createMosaicGrid() {
         } else {
             // Finalize current row and start new one
             if (currentRow.length > 0) {
-                // Scale only widths to fit container, keep height fixed
+                // Scale widths to fit container while maintaining aspect ratios
                 const denominator = currentRowWidth - (gap * (currentRow.length - 1));
                 const scale = denominator > 0 ? (availableWidth - (gap * (currentRow.length - 1))) / denominator : 1;
-                // Keep row height fixed at TARGET_ROW_HEIGHT
-                const fixedRowHeight = TARGET_ROW_HEIGHT;
                 
-                let left = containerPadding;
+                let left = 0; // No side padding
+                
+                // Create boxes: scale widths, but keep height at TARGET_ROW_HEIGHT to maintain row structure
+                // Then recalculate width from height and aspect ratio to maintain aspect ratio
                 currentRow.forEach(box => {
                     const scaledWidth = box.width * scale;
+                    // Use TARGET_ROW_HEIGHT as the height, then recalculate width from aspect ratio
+                    const finalHeight = TARGET_ROW_HEIGHT;
+                    const finalWidth = finalHeight * box.aspectRatio;
+                    
                     boxes.push({
                         left: left,
                         top: currentTop,
-                        width: scaledWidth,
-                        height: fixedRowHeight, // Always use fixed height
+                        width: finalWidth,
+                        height: finalHeight, // Fixed row height
                         video: box.video
                     });
-                    left += scaledWidth + gap;
+                    left += finalWidth + gap;
                 });
                 
-                currentTop += fixedRowHeight + gap; // Use fixed height for spacing
+                currentTop += TARGET_ROW_HEIGHT + gap; // Use fixed row height for spacing
             }
             
             // Start new row
@@ -262,26 +394,31 @@ function createMosaicGrid() {
     
     // Finalize last row
     if (currentRow.length > 0) {
-        // Scale only widths to fit container, keep height fixed
+        // Scale widths to fit container while maintaining aspect ratios
         const denominator = currentRowWidth - (gap * (currentRow.length - 1));
         const scale = denominator > 0 ? (availableWidth - (gap * (currentRow.length - 1))) / denominator : 1;
-        // Keep row height fixed at TARGET_ROW_HEIGHT
-        const fixedRowHeight = TARGET_ROW_HEIGHT;
         
-        let left = containerPadding;
+        let left = 0; // No side padding
+        
+        // Create boxes: scale widths, but keep height at TARGET_ROW_HEIGHT to maintain row structure
+        // Then recalculate width from height and aspect ratio to maintain aspect ratio
         currentRow.forEach(box => {
             const scaledWidth = box.width * scale;
+            // Use TARGET_ROW_HEIGHT as the height, then recalculate width from aspect ratio
+            const finalHeight = TARGET_ROW_HEIGHT;
+            const finalWidth = finalHeight * box.aspectRatio;
+            
             boxes.push({
                 left: left,
                 top: currentTop,
-                width: scaledWidth,
-                height: fixedRowHeight, // Always use fixed height
+                width: finalWidth,
+                height: finalHeight, // Fixed row height
                 video: box.video
             });
-            left += scaledWidth + gap;
+            left += finalWidth + gap;
         });
         
-        currentTop += fixedRowHeight; // Use fixed height
+        currentTop += TARGET_ROW_HEIGHT; // Use fixed row height
     }
     
     // Create HTML
@@ -302,7 +439,7 @@ function createMosaicGrid() {
                         transition: transform 0.3s ease, box-shadow 0.3s ease;">
                 <div class="relative w-full h-full bg-primary-dark group">
                     <video 
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-contain"
                         preload="none"
                         loading="lazy"
                         muted
@@ -311,9 +448,36 @@ function createMosaicGrid() {
                         <source data-src="${box.video.src}" type="video/mp4">
                     </video>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                        <p class="text-white text-sm font-medium">${box.video.title}</p>
+                    
+                    <!-- Client Name Badge (top-left) -->
+                    <div class="absolute top-3 left-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-3 py-1.5 rounded-full text-xs font-semibold">
+                            ${box.video.title}
+                        </span>
                     </div>
+                    
+                    <!-- Tags (bottom-left) -->
+                    ${box.video.tags && box.video.tags.length > 0 ? `
+                    <div class="absolute bottom-12 left-3 z-10 flex flex-wrap items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 max-w-[80%]">
+                        ${box.video.tags.slice(0, 3).map(tag => `
+                            <div class="flex items-center gap-1.5 bg-black/40 backdrop-blur-sm px-2.5 py-1 rounded-lg border border-white/10">
+                                <span class="text-white text-xs font-medium">${tag}</span>
+                            </div>
+                        `).join('')}
+                        ${box.video.tags.length > 3 ? `
+                            <div class="flex items-center gap-1.5 bg-black/40 backdrop-blur-sm px-2.5 py-1 rounded-lg border border-white/10">
+                                <span class="text-white text-xs font-medium">+${box.video.tags.length - 3}</span>
+                            </div>
+                        ` : ''}
+                    </div>
+                    ` : ''}
+                    
+                    <!-- Title (bottom, centered) -->
+                    <div class="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <p class="text-white text-sm font-medium text-center">${box.video.title}</p>
+                    </div>
+                    
+                    <!-- Play Button (center) -->
                     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <div class="bg-white/20 backdrop-blur-md rounded-full p-4">
                             <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -327,7 +491,7 @@ function createMosaicGrid() {
     });
     
     container.innerHTML = html;
-    container.style.height = `${currentTop + containerPadding}px`;
+    container.style.height = `${currentTop}px`; // No padding
     container.style.position = 'relative';
     
     // Setup lazy loading and hover effects
@@ -535,7 +699,8 @@ document.addEventListener('DOMContentLoaded', function() {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    background: #1a1a1a;
 }
 
 /* Loading state */
