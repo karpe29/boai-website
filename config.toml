@@ -9,16 +9,16 @@ title = 'BlinkofAI'
   [[menu.main]]
     identifier = "blog"
     name = "Blog"
-    url = "/boai-website/blog/"
+    url = "blog/"
     weight = 1
   [[menu.main]]
     identifier = "case-studies"
     name = "Case Studies"
-    url = "/boai-website/case-studies/"
+    url = "case-studies/"
     weight = 2
   [[menu.main]]
     identifier = "pricing"
     name = "Pricing"
-    url = "/boai-website/pricing/"
+    url = "pricing/"
     weight = 3
 
