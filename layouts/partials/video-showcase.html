@@ -7,17 +7,20 @@
             <!-- Title Section -->
             <div class="text-center mb-12">
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4" style="font-family: 'Georgia', 'Times New Roman', 'Palatino', 'Book Antiqua', serif;">
-                    Video Showcase
+                    Work We've Shipped
                 </h1>
                 <p class="text-lg md:text-xl text-[#d8d8dc]/80 font-light max-w-3xl mx-auto" style="font-family: 'Poppins', sans-serif;">
-                    Explore our collection of personalized video ads
+                    Video ads optimized for persona, platform, and performance
                 </p>
             </div>
             
             <!-- Filter Section -->
             <div class="video-filter-section mb-8">
                 <div class="video-category-filter flex flex-wrap items-center gap-2">
-                    <!-- Filter buttons will be dynamically generated -->
+                    <!-- Video filter buttons will be dynamically generated -->
+                </div>
+                <div class="video-industry-filter flex flex-wrap items-center gap-2 mt-2">
+                    <!-- Industry filter buttons will be dynamically generated -->
                 </div>
             </div>
             
@@ -94,8 +97,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function setupCategoryFilters() {
-    const filterContainer = document.querySelector('.video-category-filter');
-    if (!filterContainer || allVideos.length === 0) return;
+    const categoryFilterContainer = document.querySelector('.video-category-filter');
+    const industryFilterContainer = document.querySelector('.video-industry-filter');
+    if (!categoryFilterContainer || !industryFilterContainer || allVideos.length === 0) return;
     
     // Get all unique categories from videos
     const categories = [...new Set(allVideos.map(v => v.category).filter(Boolean))];
@@ -119,36 +123,39 @@ function setupCategoryFilters() {
         'education': 'Education'
     };
     
-    // Generate filter HTML
-    let filterHTML = '';
+    // Generate video filter HTML (first line)
+    let categoryFilterHTML = '';
     
     // All Videos button
     const isAllActive = currentFilter === 'all' ? 'active' : '';
-    filterHTML += `<button class="category-filter-btn ${isAllActive}" data-filter="all" data-type="all">All Videos</button>`;
+    categoryFilterHTML += `<button class="category-filter-btn ${isAllActive}" data-filter="all" data-type="all">All Videos</button>`;
     
     // Category filters
     categories.forEach(category => {
         const displayName = categoryNames[category] || category.charAt(0).toUpperCase() + category.slice(1).replace(/-/g, ' ');
         const isActive = currentFilter === category && currentFilterType === 'category' ? 'active' : '';
-        filterHTML += `<button class="category-filter-btn ${isActive}" data-filter="${category}" data-type="category">${displayName}</button>`;
+        categoryFilterHTML += `<button class="category-filter-btn ${isActive}" data-filter="${category}" data-type="category">${displayName}</button>`;
     });
     
-    // Vertical divider
-    if (industries.length > 0) {
-        filterHTML += `<div class="filter-divider"></div>`;
-    }
+    categoryFilterContainer.innerHTML = categoryFilterHTML;
+    
+    // Generate industry filter HTML (second line)
+    let industryFilterHTML = '';
     
     // Industry filters
     industries.forEach(industry => {
         const displayName = industryNames[industry] || industry.charAt(0).toUpperCase() + industry.slice(1);
         const isActive = currentFilter === industry && currentFilterType === 'industry' ? 'active' : '';
-        filterHTML += `<button class="category-filter-btn ${isActive}" data-filter="${industry}" data-type="industry">${displayName}</button>`;
+        industryFilterHTML += `<button class="category-filter-btn ${isActive}" data-filter="${industry}" data-type="industry">${displayName}</button>`;
     });
     
-    filterContainer.innerHTML = filterHTML;
+    industryFilterContainer.innerHTML = industryFilterHTML;
     
-    // Add click handlers
-    filterContainer.querySelectorAll('.category-filter-btn').forEach(btn => {
+    // Add click handlers to both containers
+    const allFilterButtons = categoryFilterContainer.querySelectorAll('.category-filter-btn');
+    const industryFilterButtons = industryFilterContainer.querySelectorAll('.category-filter-btn');
+    
+    [...allFilterButtons, ...industryFilterButtons].forEach(btn => {
         btn.addEventListener('click', function() {
             const filter = this.getAttribute('data-filter');
             const type = this.getAttribute('data-type');
@@ -172,16 +179,35 @@ function setFilter(filter, type) {
     }
     window.history.pushState({ filter, type }, '', url);
     
-    // Update active button - only one can be active at a time
-    document.querySelectorAll('.category-filter-btn').forEach(btn => {
-        const btnFilter = btn.getAttribute('data-filter');
-        const btnType = btn.getAttribute('data-type');
-        if (btnFilter === filter && btnType === type) {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
-    });
+    // Update active button - only one can be active at a time (across both containers)
+    const categoryContainer = document.querySelector('.video-category-filter');
+    const industryContainer = document.querySelector('.video-industry-filter');
+    
+    // Update category filter buttons
+    if (categoryContainer) {
+        categoryContainer.querySelectorAll('.category-filter-btn').forEach(btn => {
+            const btnFilter = btn.getAttribute('data-filter');
+            const btnType = btn.getAttribute('data-type');
+            if (btnFilter === filter && btnType === type) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
+    
+    // Update industry filter buttons
+    if (industryContainer) {
+        industryContainer.querySelectorAll('.category-filter-btn').forEach(btn => {
+            const btnFilter = btn.getAttribute('data-filter');
+            const btnType = btn.getAttribute('data-type');
+            if (btnFilter === filter && btnType === type) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
     
     // Reload grid with filtered videos
     createMosaicGrid();
@@ -513,24 +539,16 @@ function createGridLayout(videos, container, TARGET_ROW_HEIGHT) {
                     
                     <!-- Tags (bottom-left) -->
                     ${box.video.tags && box.video.tags.length > 0 ? `
-                    <div class="absolute bottom-12 left-3 z-10 flex flex-wrap items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 max-w-[80%]">
-                        ${box.video.tags.slice(0, 3).map(tag => `
-                            <div class="flex items-center gap-1.5 bg-black/40 backdrop-blur-sm px-2.5 py-1 rounded-lg border border-white/10">
-                                <span class="text-white text-xs font-medium">${tag}</span>
+                    <div class="absolute bottom-3 left-3 z-10 flex flex-wrap items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 max-w-[80%]">
+                        ${box.video.tags.map(tag => `
+                            <div class="flex items-center gap-1 bg-black/40 backdrop-blur-sm px-2.5 py-0.5 rounded-lg border border-white/10">
+                                <span class="text-white text-[10px] font-normal">${tag}</span>
                             </div>
                         `).join('')}
-                        ${box.video.tags.length > 3 ? `
-                            <div class="flex items-center gap-1.5 bg-black/40 backdrop-blur-sm px-2.5 py-1 rounded-lg border border-white/10">
-                                <span class="text-white text-xs font-medium">+${box.video.tags.length - 3}</span>
-                            </div>
-                        ` : ''}
                     </div>
                     ` : ''}
                     
-                    <!-- Title (bottom, centered) -->
-                    <div class="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                        <p class="text-white text-sm font-medium text-center">${box.video.title}</p>
-                    </div>
+                 
                     
                     <!-- Play Button (center) -->
                     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -689,9 +707,10 @@ document.addEventListener('DOMContentLoaded', function() {
     margin-bottom: 2rem;
 }
 
-.video-category-filter {
+.video-category-filter,
+.video-industry-filter {
     margin-bottom: 0;
-    justify-content: flex-start; /* Left align */
+    justify-content: center; /* Center align */
     align-items: center;
 }
 

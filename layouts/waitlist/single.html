@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ "images/logos/favicon-32x32.png" | relURL }}">
+    <link rel="icon" type="image/png" href="{{ "images/logos/CAT_01.png" | relURL }}">
+    
+    <!-- Poppins Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}?v={{ now.Unix }}">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        #mce-responses .response {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            text-align: center;
+        }
+        #mce-responses #mce-error-response {
+            background-color: rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        #mce-responses #mce-success-response {
+            background-color: rgba(249, 115, 22, 0.2);
+            color: #fb923c;
+            border: 1px solid rgba(249, 115, 22, 0.3);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-[#0f172a] text-white font-sans selection:bg-orange-500/30 overflow-hidden flex flex-col">
+  
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-gradient-to-b from-orange-500/10 to-transparent blur-[120px] pointer-events-none"></div>
+
+  <!-- <nav class="relative z-10 flex justify-between items-center px-8 py-6 max-w-7xl mx-auto">
+    <div class="flex items-center gap-2">
+      <a href="{{ "/" | relURL }}">
+        <img src="{{ "images/BOAI_LOGO-1.jpg" | relURL }}" alt="BlinkOfAI Logo" class="h-10" onerror="this.src='{{ "images/logos/Logo-White.png" | relURL }}'; this.onerror=function(){this.src='{{ "images/logos/CAT_01.png" | relURL }}'};">
+      </a>
+    </div>
+    <div class="hidden md:flex gap-6 text-sm font-medium text-slate-400">
+      <a href="{{ "case-studies/" | relURL }}" class="hover:text-orange-400 cursor-pointer transition">Case Studies</a>
+      <a href="{{ "pricing/" | relURL }}" class="hover:text-orange-400 cursor-pointer transition">Pricing</a>
+    </div>
+  </nav> -->
+
+  <main class="relative z-10 flex flex-col items-center justify-center text-center px-6 flex-1 min-h-screen">
+    
+    <div class="relative mb-4">
+      <span class="px-4 py-1 rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-400 text-xs font-bold uppercase tracking-widest">
+        ScriptLab Waitlist
+      </span>
+    </div>
+
+    <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-[1.1]">
+      Scripting at the <br>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-500">Speed of Sight.</span>
+    </h1>
+
+    <p class="text-slate-400 text-lg md:text-xl max-w-2xl mb-12">
+      Stop guessing. Start converting. ScriptLab uses your <strong class="text-white">BrandDNA</strong> to generate research-backed video scripts in a blink.
+    </p>
+
+    <!-- Social Proof Section -->
+    <!-- <div class="mb-12 max-w-3xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-slate-800/40 backdrop-blur-xl border border-white/10 rounded-xl p-6">
+          <div class="text-4xl font-bold text-orange-400 mb-2">+186%</div>
+          <div class="text-slate-300 text-sm">CTR Boost for OYO</div>
+        </div>
+        <div class="bg-slate-800/40 backdrop-blur-xl border border-white/10 rounded-xl p-6">
+          <div class="text-4xl font-bold text-orange-400 mb-2">-50%</div>
+          <div class="text-slate-300 text-sm">CPL Reduction for Indira IVF</div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="relative w-full max-w-lg group">
+      <!-- <img src="{{ "images/CAT_POSE_PEEK.png" | relURL }}" class="absolute -left-16 -top-12 w-24 transform -rotate-12 group-hover:rotate-0 transition-transform duration-500 hidden md:block" alt="Blink Cat" onerror="this.src='{{ `images/logos/CAT_01.png` | relURL }}'; this.onerror=function(){this.style.display='none'};"> -->
+      
+      <form id="waitlist-form" action="https://blinkofai.us10.list-manage.com/subscribe/post?u=243383c600c33dac75a692a2a&amp;id=8bcf029c2a&amp;f_id=00e883e2f0" method="post" name="mc-embedded-subscribe-form" class="validate flex flex-col md:flex-row gap-3 p-2 bg-slate-800/40 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl" novalidate onsubmit="handleWaitlistSubmit(event)">
+        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
+        <div aria-hidden="true" style="position: absolute; left: -5000px;">
+          <input type="text" name="b_243383c600c33dac75a692a2a_8bcf029c2a" tabindex="-1" value="">
+        </div>
+        <input 
+          type="email" 
+          id="mce-EMAIL"
+          name="EMAIL"
+          placeholder="Enter your work email" 
+          class="flex-1 bg-transparent border-none px-6 py-4 text-white placeholder:text-slate-500 focus:ring-0 outline-none"
+          required
+        >
+        <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-400 hover:to-yellow-400 text-slate-950 font-bold px-8 py-4 rounded-xl transition-all shadow-[0_0_30px_rgba(249,115,22,0.3)]">
+          Join the Waitlist
+        </button>
+      </form>
+      <div id="mce-responses" class="mt-4">
+        <div class="response text-sm text-red-400" id="mce-error-response" style="display: none;"></div>
+        <div class="response text-sm text-orange-400" id="mce-success-response" style="display: none;"></div>
+      </div>
+    </div>
+
+    <div class="mt-20">
+      <p class="text-xs uppercase font-semibold text-slate-500 tracking-[0.2em] mb-8">Trusted by Marketers at</p>
+      <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-40 grayscale hover:grayscale-0 transition duration-500">
+        <span class="font-bold text-xl">OYO</span>
+        <span class="font-bold text-xl">HDFC</span>
+        <span class="font-bold text-xl">ICICI BANK</span>
+        <span class="font-bold text-xl">SCALER</span>
+      </div>
+    </div>
+  </main>
+
+  <div class="fixed bottom-0 right-10 z-20 w-72 hidden lg:block translate-y-2 hover:translate-y-0 transition-transform duration-300">
+    <div class="relative">
+      <!-- Orange glow effect -->
+      <div class="absolute inset-0 bg-orange-400/40 blur-2xl rounded-full transform scale-150"></div>
+      <img src="{{ "images/CAT_POSE_HEAD.png" | relURL }}" alt="Curious Cat" class="relative " onerror="this.src='{{ `images/logos/CAT_02.png` | relURL }}'; this.onerror=function(){this.style.display='none'};">
+    </div>
+  </div>
+
+  <!-- jQuery (required for Mailchimp validation) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  
+  <!-- Mailchimp Form Scripts -->
+  <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+  <script type="text/javascript">
+  (function($) {
+    window.fnames = new Array(); 
+    window.ftypes = new Array();
+    fnames[0]='EMAIL';
+    ftypes[0]='email';
+    fnames[1]='FNAME';
+    ftypes[1]='text';
+    fnames[2]='LNAME';
+    ftypes[2]='text';
+    fnames[3]='ADDRESS';
+    ftypes[3]='address';
+    fnames[4]='PHONE';
+    ftypes[4]='phone';
+    fnames[5]='BIRTHDAY';
+    ftypes[5]='birthday';
+    fnames[6]='COMPANY';
+    ftypes[6]='text';
+  }(jQuery));
+  var $mcj = jQuery.noConflict(true);
+  </script>
+
+  <script>
+    // Custom form submission handler to prevent redirect
+    function handleWaitlistSubmit(event) {
+      event.preventDefault();
+      
+      const form = event.target;
+      const emailInput = document.getElementById('mce-EMAIL');
+      const errorResponse = document.getElementById('mce-error-response');
+      const successResponse = document.getElementById('mce-success-response');
+      const submitButton = document.getElementById('mc-embedded-subscribe');
+      
+      const email = emailInput.value.trim();
+      
+      // Basic validation
+      if (!email || !email.includes('@')) {
+        errorResponse.textContent = 'Please enter a valid email address.';
+        errorResponse.style.display = 'block';
+        successResponse.style.display = 'none';
+        return;
+      }
+      
+      // Hide previous messages
+      errorResponse.style.display = 'none';
+      successResponse.style.display = 'none';
+      
+      // Disable submit button
+      submitButton.disabled = true;
+      submitButton.textContent = 'Joining...';
+      
+      // Create form data
+      const formData = new FormData(form);
+      
+      // Convert form action to JSON endpoint
+      const action = form.action.replace('/post?', '/post-json?').split('&f_id=')[0] + '&c=?';
+      
+      // Create unique callback function name
+      const callbackName = 'mailchimpCallback_' + Date.now();
+      
+      // Create script tag for JSONP
+      window[callbackName] = function(data) {
+        // Remove script tag
+        const script = document.getElementById('mailchimp-jsonp');
+        if (script) {
+          script.remove();
+        }
+        
+        // Re-enable submit button
+        submitButton.disabled = false;
+        submitButton.textContent = 'Join the Waitlist';
+        
+        // Handle response
+        if (data.result === 'success') {
+          successResponse.textContent = data.msg || 'Thanks! We\'ll be in touch soon. 🎉';
+          successResponse.style.display = 'block';
+          errorResponse.style.display = 'none';
+          emailInput.value = '';
+        } else {
+          errorResponse.textContent = data.msg || 'Something went wrong. Please try again.';
+          errorResponse.style.display = 'block';
+          successResponse.style.display = 'none';
+        }
+        
+        // Clean up callback
+        delete window[callbackName];
+      };
+      
+      // Build URL with form data
+      const params = new URLSearchParams();
+      for (const [key, value] of formData.entries()) {
+        params.append(key, value);
+      }
+      params.append('c', callbackName);
+      
+      // Create and inject script tag for JSONP
+      const script = document.createElement('script');
+      script.id = 'mailchimp-jsonp';
+      script.src = action.replace('&c=?', '') + '&' + params.toString();
+      document.head.appendChild(script);
+    }
+  </script>
+</body>
+</html>
