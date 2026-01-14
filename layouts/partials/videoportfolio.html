@@ -141,10 +141,10 @@
             </div>
             
             <!-- See More Videos Link -->
-            <div class="flex justify-center mb-10 -mt-6">
+            <div class="flex justify-center mb-10 -mt-6 relative z-40">
                 <a 
-                    href="#videoshowcase" 
-                    class="text-sm text-[#d8d8dc]/70 hover:text-[#d8d8dc] transition-colors duration-200  decoration-[#d8d8dc]/30 hover:decoration-[#d8d8dc]/60"
+                    href="{{ "video-showcase/" | relURL }}" 
+                    class="text-sm text-[#d8d8dc]/70 hover:text-[#d8d8dc] transition-colors duration-200 decoration-[#d8d8dc]/30 hover:decoration-[#d8d8dc]/60 relative z-40 pointer-events-auto cursor-pointer"
                     aria-label="See more videos"
                 >
                     see more videos
@@ -332,6 +332,14 @@
 #videoportfolio-next {
     z-index: 50 !important;
     pointer-events: auto;
+}
+
+/* Ensure "see more videos" link is clickable */
+#videoportfolio-section a[href="#videoshowcase"] {
+    position: relative;
+    z-index: 40 !important;
+    pointer-events: auto !important;
+    cursor: pointer;
 }
 
 /* Mobile: overlay arrows on active card */
