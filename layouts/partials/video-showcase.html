@@ -14,12 +14,11 @@
                 </p>
             </div>
             
-            <!-- Category Filter -->
-            <div class="video-category-filter mb-8 flex flex-wrap justify-center gap-3">
-                <button class="category-filter-btn active" data-category="all">
-                    All Videos
-                </button>
-                <!-- Category buttons will be dynamically generated -->
+            <!-- Filter Section -->
+            <div class="video-filter-section mb-8">
+                <div class="video-category-filter flex flex-wrap items-center gap-2">
+                    <!-- Filter buttons will be dynamically generated -->
+                </div>
             </div>
             
             <!-- Mosaic Grid Container -->
@@ -54,14 +53,17 @@
 <script>
 // Global state
 let allVideos = [];
-let currentCategory = 'all';
+let currentFilter = 'all'; // Can be 'all', category, or industry
+let currentFilterType = 'all'; // 'all', 'category', or 'industry'
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Get category from URL parameter
+    // Get filter from URL parameter
     const urlParams = new URLSearchParams(window.location.search);
-    const categoryFromUrl = urlParams.get('category');
-    if (categoryFromUrl) {
-        currentCategory = categoryFromUrl;
+    const filterFromUrl = urlParams.get('filter');
+    const filterTypeFromUrl = urlParams.get('type');
+    if (filterFromUrl && filterTypeFromUrl) {
+        currentFilter = filterFromUrl;
+        currentFilterType = filterTypeFromUrl;
     }
     
     // Initialize videos and grid (filters will be set up inside setupVideoGrid)
@@ -80,9 +82,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle browser back/forward buttons
     window.addEventListener('popstate', function(event) {
         const urlParams = new URLSearchParams(window.location.search);
-        const categoryFromUrl = urlParams.get('category') || 'all';
-        if (categoryFromUrl !== currentCategory) {
-            currentCategory = categoryFromUrl;
+        const filterFromUrl = urlParams.get('filter') || 'all';
+        const filterTypeFromUrl = urlParams.get('type') || 'all';
+        if (filterFromUrl !== currentFilter || filterTypeFromUrl !== currentFilterType) {
+            currentFilter = filterFromUrl;
+            currentFilterType = filterTypeFromUrl;
             setupCategoryFilters();
             setupVideoGrid();
         }
@@ -94,67 +98,92 @@ function setupCategoryFilters() {
     if (!filterContainer || allVideos.length === 0) return;
     
     // Get all unique categories from videos
-    const categories = ['all', ...new Set(allVideos.map(v => v.category).filter(Boolean))];
+    const categories = [...new Set(allVideos.map(v => v.category).filter(Boolean))];
+    const categoryNames = {
+        'supers': 'Supers',
+        'vo': 'VO',
+        'character': 'Character',
+        'product': 'Product',
+        'lipsync': 'Lipsync',
+        'pdftovideo': 'PDFtoVideo'
+    };
     
-    // Only regenerate if categories have changed or buttons don't exist
-    const existingButtons = filterContainer.querySelectorAll('.category-filter-btn');
-    if (existingButtons.length === 0 || existingButtons.length !== categories.length) {
-        // Generate filter buttons
-        let filterHTML = '';
-        categories.forEach(category => {
-            const displayName = category === 'all' ? 'All Videos' : category.charAt(0).toUpperCase() + category.slice(1);
-            const isActive = category === currentCategory ? 'active' : '';
-            filterHTML += `
-                <button class="category-filter-btn ${isActive}" data-category="${category}">
-                    ${displayName}
-                </button>
-            `;
-        });
-        
-        filterContainer.innerHTML = filterHTML;
-        
-        // Add click handlers
-        filterContainer.querySelectorAll('.category-filter-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const category = this.getAttribute('data-category');
-                setCategory(category);
-            });
-        });
-    } else {
-        // Just update active state
-        filterContainer.querySelectorAll('.category-filter-btn').forEach(btn => {
-            const btnCategory = btn.getAttribute('data-category');
-            if (btnCategory === currentCategory) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
-        });
+    // Get all unique industries from videos
+    const industries = [...new Set(allVideos.map(v => v.industry).filter(Boolean))];
+    const industryNames = {
+        'fashion': 'Fashion',
+        'hospitality': 'Hospitality',
+        'healthcare': 'Healthcare',
+        'bfsi': 'BFSI',
+        'jewellery': 'Jewellery',
+        'education': 'Education'
+    };
+    
+    // Generate filter HTML
+    let filterHTML = '';
+    
+    // All Videos button
+    const isAllActive = currentFilter === 'all' ? 'active' : '';
+    filterHTML += `<button class="category-filter-btn ${isAllActive}" data-filter="all" data-type="all">All Videos</button>`;
+    
+    // Category filters
+    categories.forEach(category => {
+        const displayName = categoryNames[category] || category.charAt(0).toUpperCase() + category.slice(1).replace(/-/g, ' ');
+        const isActive = currentFilter === category && currentFilterType === 'category' ? 'active' : '';
+        filterHTML += `<button class="category-filter-btn ${isActive}" data-filter="${category}" data-type="category">${displayName}</button>`;
+    });
+    
+    // Vertical divider
+    if (industries.length > 0) {
+        filterHTML += `<div class="filter-divider"></div>`;
     }
+    
+    // Industry filters
+    industries.forEach(industry => {
+        const displayName = industryNames[industry] || industry.charAt(0).toUpperCase() + industry.slice(1);
+        const isActive = currentFilter === industry && currentFilterType === 'industry' ? 'active' : '';
+        filterHTML += `<button class="category-filter-btn ${isActive}" data-filter="${industry}" data-type="industry">${displayName}</button>`;
+    });
+    
+    filterContainer.innerHTML = filterHTML;
+    
+    // Add click handlers
+    filterContainer.querySelectorAll('.category-filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+            const type = this.getAttribute('data-type');
+            setFilter(filter, type);
+        });
+    });
 }
 
-function setCategory(category) {
-    currentCategory = category;
+function setFilter(filter, type) {
+    currentFilter = filter;
+    currentFilterType = type;
     
     // Update URL without page reload
     const url = new URL(window.location);
-    if (category === 'all') {
-        url.searchParams.delete('category');
+    if (filter === 'all') {
+        url.searchParams.delete('filter');
+        url.searchParams.delete('type');
     } else {
-        url.searchParams.set('category', category);
+        url.searchParams.set('filter', filter);
+        url.searchParams.set('type', type);
     }
-    window.history.pushState({ category }, '', url);
+    window.history.pushState({ filter, type }, '', url);
     
-    // Update active button
+    // Update active button - only one can be active at a time
     document.querySelectorAll('.category-filter-btn').forEach(btn => {
-        if (btn.getAttribute('data-category') === category) {
+        const btnFilter = btn.getAttribute('data-filter');
+        const btnType = btn.getAttribute('data-type');
+        if (btnFilter === filter && btnType === type) {
             btn.classList.add('active');
         } else {
             btn.classList.remove('active');
         }
     });
     
-    // Reload grid with filtered videos (don't call setupCategoryFilters again)
+    // Reload grid with filtered videos
     createMosaicGrid();
 }
 
@@ -211,108 +240,129 @@ function createMosaicGrid() {
     const container = document.getElementById('video-mosaic-grid');
     
     // Initialize all videos with categories (only on first load)
-    // GCP Bucket Base URL
-    const GCP_BUCKET_BASE_URL = "https://storage.googleapis.com/blinkofai-portfolio-videos-20260114/";
+    // GCP Cloud CDN URL - Using Google Cloud CDN with custom domain for faster video delivery
+    // Custom domain: video.blinkofai.io (HTTPS enabled with Google-managed SSL)
+    const GCP_BUCKET_BASE_URL = "https://video.blinkofai.io/"; // Cloud CDN endpoint
     
     if (allVideos.length === 0) {
         allVideos = [
             { 
                 src: GCP_BUCKET_BASE_URL + "CANCUN/Cancun%20Pre%20Reg.mp4", 
                 title: "OYO Cancun", 
-                category: "brand-visuals",
+                category: "supers",
+                industry: "hospitality",
                 tags: ["Supers", "Brand Visuals", "AI enhanced", "On-Brand"]
             },
             { 
                 src: GCP_BUCKET_BASE_URL + "PrimeBook/Primebook_video.mp4", 
                 title: "Primebook", 
-                category: "ai-animation",
+                category: "supers",
+                industry: "education",
                 tags: ["Supers", "Brand Visuals", "AI Animation", "On-Brand"]
             },
             { 
                 src: GCP_BUCKET_BASE_URL + "EMT/Final_1_v5_Vo.mp4", 
                 title: "EMT", 
-                category: "ai-visuals",
+                category: "vo",
+                industry: "healthcare",
                 tags: ["Supers", "VO", "AI Visuals", "On-Brand"]
             },
             { 
                 src: GCP_BUCKET_BASE_URL + "OYO%20BELVILLA/English%20V3.mp4", 
                 title: "OYO Belville", 
-                category: "brand-visuals",
+                category: "vo",
+                industry: "hospitality",
                 tags: ["Supers", "VO", "Brand Visuals", "On-Brand"]
             },
             { 
                 src: GCP_BUCKET_BASE_URL + "ABSLI/ABSLI_v2.mp4", 
                 title: "ABSLI Farhan Akhtar", 
-                category: "brand-visuals",
+                category: "vo",
+                industry: "bfsi",
                 tags: ["Supers", "VO", "Brand Visuals", "On-Brand"]
             },
             { 
                 src: GCP_BUCKET_BASE_URL + "HDFC/HDFC%202.mp4", 
                 title: "HDFC ETF", 
-                category: "ai-animation",
+                category: "vo",
+                industry: "bfsi",
                 tags: ["Supers", "VO", "Stock", "AI Animation", "On-Brand"]
             },
             { 
                 src: GCP_BUCKET_BASE_URL + "ICICI/ICICI_Video_2_New_v3.mp4", 
                 title: "ICICI Orange Book", 
-                category: "ai-animation",
+                category: "vo",
+                industry: "bfsi",
                 tags: ["Supers", "VO", "Brand Visuals", "AI Animation", "On-Brand"]
             },
             { 
                 src: GCP_BUCKET_BASE_URL + "Indira%20IVF/IVF_new%20year_v5.mp4", 
                 title: "Indira IVF New Years", 
-                category: "ai-visuals",
+                category: "vo",
+                industry: "healthcare",
                 tags: ["Supers", "VO", "AI Visuals", "On-Brand"]
             },
             { 
                 src: GCP_BUCKET_BASE_URL + "Kotak/Script6_Kotak_v6.mp4", 
                 title: "Kotak Script 6", 
-                category: "ai-animation",
+                category: "vo",
+                industry: "bfsi",
                 tags: ["Supers", "VO", "Stock", "AI Visuals", "AI Animation", "On-Brand"]
             },
             { 
                 src: GCP_BUCKET_BASE_URL + "SCALER/Scaler_Master_Script%204.mp4", 
                 title: "Scaler", 
-                category: "ai-avatar",
+                category: "character",
+                industry: "education",
                 tags: ["Supers", "VO", "AI Avatar", "On-Brand"]
             },
             { 
                 src: GCP_BUCKET_BASE_URL + "Coggi/Coggi_video_v7.mp4", 
                 title: "Coggi", 
-                category: "ai-animation",
+                category: "vo",
+                industry: "fashion",
                 tags: ["Supers", "VO", "Brand Visuals", "AI Visuals", "AI Animation", "On-Brand"]
             },
             { 
                 src: GCP_BUCKET_BASE_URL + "Paragon/Eeken%20EVA%20shoes_v9.mp4", 
                 title: "Paragon Eeken", 
-                category: "product-accuracy",
+                category: "product",
+                industry: "fashion",
                 tags: ["Supers", "VO", "Product Accuracy"]
             },
             { 
                 src: GCP_BUCKET_BASE_URL + "Urban%20Money/UrbanMoney_Cap_v5.mp4", 
                 title: "Urban Monkey", 
-                category: "product-consistency",
+                category: "product",
+                industry: "bfsi",
                 tags: ["Supers", "Product Consistency", "AI Animation", "AI Visuals", "On-Brand"]
             },
             { 
                 src: GCP_BUCKET_BASE_URL + "JPEARLS%20EARRINGS/Jpearls%20Earrings.mp4", 
                 title: "JPearls Earrings", 
-                category: "product-accuracy",
+                category: "product",
+                industry: "jewellery",
                 tags: ["Supers", "VO", "Product Accuracy", "AI Visuals", "On-Brand"]
             },
             { 
                 src: GCP_BUCKET_BASE_URL + "OYO%20Traum/Traum%20English%2016x9.mp4", 
                 title: "Traum", 
-                category: "ai-avatar",
+                category: "character",
+                industry: "hospitality",
                 tags: ["Supers", "VO", "AI Avatar", "Character Consistency", "Brand Visuals", "On-Brand"]
             }
         ];
     }
     
-    // Filter videos based on current category
-    const videos = currentCategory === 'all' 
-        ? allVideos 
-        : allVideos.filter(video => video.category === currentCategory);
+    // Filter videos based on current filter (mutually exclusive)
+    let videos = allVideos;
+    if (currentFilter !== 'all') {
+        if (currentFilterType === 'category') {
+            videos = allVideos.filter(video => video.category === currentFilter);
+        } else if (currentFilterType === 'industry') {
+            videos = allVideos.filter(video => video.industry === currentFilter);
+        }
+    }
     
     // Load video dimensions first, then create grid
     loadAllVideoDimensions(videos).then(() => {
@@ -343,10 +393,7 @@ function createGridLayout(videos, container, TARGET_ROW_HEIGHT) {
     videos.forEach((video) => {
         // Use actual video aspect ratio
         const aspectRatio = video.aspectRatio || 16/9; // Fallback to 16:9 if not loaded
-        
-        // Calculate dimensions: constrain height to TARGET_ROW_HEIGHT, then calculate width
-        // This ensures all videos in a row have the same height
-        const boxHeight = TARGET_ROW_HEIGHT;
+        const boxHeight = TARGET_ROW_HEIGHT; // Use fixed row height
         const boxWidth = boxHeight * aspectRatio;
         
         // Check if this box fits in current row
@@ -364,26 +411,30 @@ function createGridLayout(videos, container, TARGET_ROW_HEIGHT) {
                 const scale = denominator > 0 ? (availableWidth - (gap * (currentRow.length - 1))) / denominator : 1;
                 
                 let left = 0; // No side padding
+                let maxHeight = 0;
                 
-                // Create boxes: scale widths, but keep height at TARGET_ROW_HEIGHT to maintain row structure
-                // Then recalculate width from height and aspect ratio to maintain aspect ratio
+                // First pass: calculate scaled dimensions and find max height
                 currentRow.forEach(box => {
                     const scaledWidth = box.width * scale;
-                    // Use TARGET_ROW_HEIGHT as the height, then recalculate width from aspect ratio
-                    const finalHeight = TARGET_ROW_HEIGHT;
-                    const finalWidth = finalHeight * box.aspectRatio;
-                    
+                    const scaledHeight = scaledWidth / box.aspectRatio; // Maintain aspect ratio
+                    maxHeight = Math.max(maxHeight, scaledHeight);
+                });
+                
+                // Second pass: create boxes with maintained aspect ratios
+                currentRow.forEach(box => {
+                    const scaledWidth = box.width * scale;
+                    const scaledHeight = scaledWidth / box.aspectRatio; // Maintain aspect ratio
                     boxes.push({
                         left: left,
                         top: currentTop,
-                        width: finalWidth,
-                        height: finalHeight, // Fixed row height
+                        width: scaledWidth,
+                        height: scaledHeight, // Maintain aspect ratio
                         video: box.video
                     });
-                    left += finalWidth + gap;
+                    left += scaledWidth + gap;
                 });
                 
-                currentTop += TARGET_ROW_HEIGHT + gap; // Use fixed row height for spacing
+                currentTop += maxHeight + gap; // Use max height for spacing
             }
             
             // Start new row
@@ -399,26 +450,30 @@ function createGridLayout(videos, container, TARGET_ROW_HEIGHT) {
         const scale = denominator > 0 ? (availableWidth - (gap * (currentRow.length - 1))) / denominator : 1;
         
         let left = 0; // No side padding
+        let maxHeight = 0;
         
-        // Create boxes: scale widths, but keep height at TARGET_ROW_HEIGHT to maintain row structure
-        // Then recalculate width from height and aspect ratio to maintain aspect ratio
+        // First pass: calculate scaled dimensions and find max height
         currentRow.forEach(box => {
             const scaledWidth = box.width * scale;
-            // Use TARGET_ROW_HEIGHT as the height, then recalculate width from aspect ratio
-            const finalHeight = TARGET_ROW_HEIGHT;
-            const finalWidth = finalHeight * box.aspectRatio;
-            
+            const scaledHeight = scaledWidth / box.aspectRatio; // Maintain aspect ratio
+            maxHeight = Math.max(maxHeight, scaledHeight);
+        });
+        
+        // Second pass: create boxes with maintained aspect ratios
+        currentRow.forEach(box => {
+            const scaledWidth = box.width * scale;
+            const scaledHeight = scaledWidth / box.aspectRatio; // Maintain aspect ratio
             boxes.push({
                 left: left,
                 top: currentTop,
-                width: finalWidth,
-                height: finalHeight, // Fixed row height
+                width: scaledWidth,
+                height: scaledHeight, // Maintain aspect ratio
                 video: box.video
             });
-            left += finalWidth + gap;
+            left += scaledWidth + gap;
         });
         
-        currentTop += TARGET_ROW_HEIGHT; // Use fixed row height
+        currentTop += maxHeight; // Use max height
     }
     
     // Create HTML
@@ -629,19 +684,25 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <style>
-/* Category Filter Styles */
-.video-category-filter {
+/* Filter Section Styles */
+.video-filter-section {
     margin-bottom: 2rem;
 }
 
+.video-category-filter {
+    margin-bottom: 0;
+    justify-content: flex-start; /* Left align */
+    align-items: center;
+}
+
 .category-filter-btn {
-    padding: 0.75rem 1.5rem;
+    padding: 0.35rem 0.75rem; /* Even smaller */
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
-    border-radius: 50px;
-    font-size: 0.95rem;
+    border-radius: 16px; /* Smaller border radius */
+    font-size: 0.75rem; /* Smaller font */
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -652,31 +713,45 @@ document.addEventListener('DOMContentLoaded', function() {
 .category-filter-btn:hover {
     background: rgba(255, 127, 39, 0.3);
     border-color: rgba(255, 127, 39, 0.6);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 127, 39, 0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(255, 127, 39, 0.2);
 }
 
 .category-filter-btn.active {
     background: rgba(255, 127, 39, 0.8);
     border-color: rgba(255, 127, 39, 1);
     color: white;
-    box-shadow: 0 4px 16px rgba(255, 127, 39, 0.4);
+    box-shadow: 0 2px 12px rgba(255, 127, 39, 0.4);
 }
 
 .category-filter-btn.active:hover {
     background: rgba(255, 127, 39, 0.9);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 127, 39, 0.5);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(255, 127, 39, 0.5);
+}
+
+/* Vertical divider */
+.filter-divider {
+    width: 1px;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 0 0.4rem;
+    flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
     .category-filter-btn {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.85rem;
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
     }
     
     .video-category-filter {
-        gap: 0.5rem;
+        gap: 0.3rem;
+    }
+    
+    .filter-divider {
+        height: 16px;
+        margin: 0 0.25rem;
     }
 }
 
@@ -715,7 +790,6 @@ document.addEventListener('DOMContentLoaded', function() {
     pointer-events: none;
 }
 
-.video-mosaic-item video.loaded ~ *,
 .video-mosaic-item:has(video.loaded)::before {
     display: none;
     animation: none;
