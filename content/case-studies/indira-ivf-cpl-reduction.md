@@ -3,7 +3,7 @@ title: "Indira IVF Cut CPL by up to 50% with Regional and Language Personalized 
 date: 2025-01-22
 client: "Indira IVF"
 industry: "Healthcare"
-featured_image: "images/case-studies/indiraivf-case-study.png"
+featured_image: "/images/case-studies/indiraivf-case-study.png"
 titleshort : Cut CPL by 50% with Regional Video Ads 
 description : Localized messaging in 8 regional languages for high-stakes fertility campaign. 
 challenge: "Indira IVF runs performance campaigns in a category where decisions are emotional and high stakes, misinformation is common, and creative mistakes are expensive. The brand faced two consistent constraints: (1) Scale - reach millions without CPL blow-ups, and (2) Trust - communicate clarity without overwhelming viewers. Generic templates and long-form explanations don't work in this high-consideration healthcare category. Performance requires controlled creativity."

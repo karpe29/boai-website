@@ -3,7 +3,7 @@ title: "OYO Boosted CTR by up to 186% with BlinkofAI"
 date: 2025-01-21
 client: "OYO Rooms"
 industry: "Hospitality"
-featured_image: "images/case-studies/oyo-case-study.png"
+featured_image: "/images/case-studies/oyo-case-study.png"
 titleshort: Upto 186% CTR Boost with Personalized Ads  
 description: Consistent CTR lifts across 5 regional campaigns for India's largest hotel brand 
 challenge: "Scale performance marketing campaigns with on-brand, engaging, personalized video ads. OYO Rooms, one of India's largest hospitality brands, runs frequent digital campaigns and needed a solution to create high-quality, personalized video content at scale while maintaining brand consistency."
