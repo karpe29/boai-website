@@ -47,12 +47,7 @@ jobs:
         run: npm run build:css
       
       - name: Build Hugo site
-        run: |
-          if [ "${{ github.repository }}" == "${{ github.repository_owner }}/${{ github.repository_owner }}.github.io" ]; then
-            hugo --minify --baseURL "https://${{ github.repository_owner }}.github.io/"
-          else
-            hugo --minify --baseURL "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
-          fi
+        run: hugo --minify --baseURL "https://blinkofai.io/"
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
