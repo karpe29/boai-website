@@ -4,6 +4,7 @@ title = 'BlinkofAI'
 
 [params]
   description = 'BlinkofAI - AI-powered solutions'
+  googleAnalytics = 'G-3RQFKPXCKG'
 
 [menu]
   [[menu.main]]

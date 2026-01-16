@@ -1,0 +1,182 @@
+{{ define "main" }}
+<article class="py-20 bg-primary min-h-screen">
+    <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+            <!-- Page Header -->
+            <header class="mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">{{ .Title }}</h1>
+                {{ if .Date }}
+                <p class="text-gray-400 text-sm">
+                    Last Updated: <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+                </p>
+                {{ end }}
+            </header>
+            
+            <!-- Page Content -->
+            <div class="legal-content text-gray-300 leading-relaxed">
+                {{ .Content }}
+            </div>
+            
+            <!-- Back to Home Link -->
+            <footer class="mt-12 pt-8 border-t border-primary-light">
+                <a href="{{ "/" | relURL }}" class="inline-flex items-center text-accent hover:text-accent-light font-semibold transition-colors">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                    Back to Home
+                </a>
+            </footer>
+        </div>
+    </div>
+</article>
+
+<style>
+.legal-content {
+    color: #d1d5db;
+    line-height: 1.75;
+}
+
+/* Paragraphs */
+.legal-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #d1d5db;
+}
+
+/* Headers */
+.legal-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    padding-top: 1rem;
+}
+
+.legal-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.3;
+    padding-top: 1rem;
+}
+
+.legal-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.legal-content h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #e5e7eb;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+/* Lists */
+.legal-content ul,
+.legal-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    color: #d1d5db;
+}
+
+.legal-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.75;
+}
+
+.legal-content ul {
+    list-style-type: disc;
+}
+
+.legal-content ol {
+    list-style-type: decimal;
+}
+
+/* Links */
+.legal-content a {
+    color: #FF7F27;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.legal-content a:hover {
+    color: #FF9F4D;
+}
+
+/* Strong/Bold text */
+.legal-content strong {
+    font-weight: 600;
+    color: white;
+}
+
+/* Code/Pre blocks */
+.legal-content code {
+    background-color: rgba(255, 127, 39, 0.1);
+    color: #FF7F27;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+}
+
+.legal-content pre {
+    background-color: #1A1A1A;
+    border: 1px solid #3A3A3A;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+}
+
+/* Blockquotes */
+.legal-content blockquote {
+    border-left: 4px solid #FF7F27;
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    color: #9ca3af;
+    font-style: italic;
+}
+
+/* Horizontal rules */
+.legal-content hr {
+    border: none;
+    border-top: 1px solid #3A3A3A;
+    margin: 2rem 0;
+}
+
+/* Tables */
+.legal-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+}
+
+.legal-content th,
+.legal-content td {
+    padding: 0.75rem;
+    border: 1px solid #3A3A3A;
+    text-align: left;
+}
+
+.legal-content th {
+    background-color: #1A1A1A;
+    color: white;
+    font-weight: 600;
+}
+
+.legal-content td {
+    color: #d1d5db;
+}
+</style>
+{{ end }}
