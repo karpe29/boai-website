@@ -122,6 +122,44 @@
 </section>
 
 <script>
+// Function to switch to a specific tab
+function switchToTab(tabId) {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    // Find the button with matching data-tab
+    const targetButton = Array.from(tabButtons).find(btn => btn.getAttribute('data-tab') === tabId);
+    
+    if (targetButton) {
+        // Remove active class from all buttons
+        tabButtons.forEach(btn => {
+            btn.classList.remove('active', 'border-b-2', 'border-accent');
+            btn.classList.add('text-gray-400');
+        });
+        
+        // Add active class to target button
+        targetButton.classList.add('active', 'border-b-2', 'border-accent', 'text-white');
+        targetButton.classList.remove('text-gray-400');
+        
+        // Hide all tab contents
+        tabContents.forEach(content => {
+            content.classList.add('hidden');
+        });
+        
+        // Show selected tab content
+        const selectedContent = document.getElementById('tab-' + tabId);
+        if (selectedContent) {
+            selectedContent.classList.remove('hidden');
+        }
+        
+        // Scroll to the section smoothly
+        const section = document.getElementById('how-it-works');
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+}
+
 // Tab navigation for main tabs
 document.addEventListener('DOMContentLoaded', function() {
     const tabButtons = document.querySelectorAll('.tab-button');
@@ -130,28 +168,49 @@ document.addEventListener('DOMContentLoaded', function() {
     tabButtons.forEach(button => {
         button.addEventListener('click', function() {
             const tabId = this.getAttribute('data-tab');
-            
-            // Remove active class from all buttons
-            tabButtons.forEach(btn => {
-                btn.classList.remove('active', 'border-b-2', 'border-accent');
-                btn.classList.add('text-gray-400');
-            });
-            
-            // Add active class to clicked button
-            this.classList.add('active', 'border-b-2', 'border-accent', 'text-white');
-            this.classList.remove('text-gray-400');
-            
-            // Hide all tab contents
-            tabContents.forEach(content => {
-                content.classList.add('hidden');
-            });
-            
-            // Show selected tab content
-            const selectedContent = document.getElementById('tab-' + tabId);
-            if (selectedContent) {
-                selectedContent.classList.remove('hidden');
-            }
+            switchToTab(tabId);
         });
+    });
+    
+    // Handle footer links with data-tab-link attribute
+    const footerTabLinks = document.querySelectorAll('a[data-tab-link]');
+    footerTabLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const tabId = this.getAttribute('data-tab-link');
+            // Update URL hash to maintain state
+            window.location.hash = 'how-it-works-' + tabId;
+            switchToTab(tabId);
+        });
+    });
+    
+    // Handle URL hash on page load (e.g., #how-it-works-scriptlab)
+    function handleHashOnLoad() {
+        if (window.location.hash) {
+            const hash = window.location.hash.substring(1); // Remove the #
+            if (hash.startsWith('how-it-works-')) {
+                const tabId = hash.replace('how-it-works-', '');
+                // Validate tab ID
+                const validTabs = ['scriptlab', 'visualstudio', 'adlab', 'variantengine', 'branddna'];
+                if (validTabs.includes(tabId)) {
+                    setTimeout(() => switchToTab(tabId), 100);
+                }
+            } else if (hash === 'how-it-works') {
+                // Just scroll to section if no specific tab
+                const section = document.getElementById('how-it-works');
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        }
+    }
+    
+    // Handle hash on initial load
+    handleHashOnLoad();
+    
+    // Handle hash changes (when clicking footer links or browser back/forward)
+    window.addEventListener('hashchange', function() {
+        handleHashOnLoad();
     });
 
     // Initialize all modules with synchronized tab/video/image functionality
