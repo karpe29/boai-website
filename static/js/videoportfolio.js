@@ -362,7 +362,7 @@
         });
         
         // Phase 2: Update card content in next frame (after transitions start)
-        // Only update content if the slide index actually changed
+        // Always update content to ensure videos and badges match the slide
         requestAnimationFrame(() => {
             slides.forEach((slide, i) => {
                 const state = states[i];
@@ -370,11 +370,8 @@
                 const card = container.children[i];
                 
                 if (card) {
-                    const currentIndex = parseInt(card.getAttribute('data-index') || '-1');
-                    // Only update content if showing a different slide
-                    if (currentIndex !== index) {
-                        updateCardContent(card, slide, state);
-                    }
+                    // Always update content to ensure it matches the current slide
+                    updateCardContent(card, slide, state);
                 }
             });
         });
@@ -559,9 +556,26 @@
         // Render initial cards
         renderCards();
 
-        // Event listeners
-        prevBtn.addEventListener('click', prevSlide);
-        nextBtn.addEventListener('click', nextSlide);
+        // Event listeners - ensure buttons are clickable
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            prevSlide();
+        });
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            nextSlide();
+        });
+        
+        // Ensure buttons are not disabled and have proper pointer events
+        prevBtn.disabled = false;
+        nextBtn.disabled = false;
+        prevBtn.style.pointerEvents = 'auto';
+        nextBtn.style.pointerEvents = 'auto';
+        prevBtn.style.cursor = 'pointer';
+        nextBtn.style.cursor = 'pointer';
+        
         document.addEventListener('keydown', handleKeydown);
         
         // Touch events

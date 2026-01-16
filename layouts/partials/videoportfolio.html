@@ -121,7 +121,8 @@
                 <!-- Navigation Arrows - positioned on side cards, above all cards -->
                 <button 
                     id="videoportfolio-prev" 
-                    class="absolute left-0 md:left-[10%] top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-md hover:bg-white/20 border border-white/20 text-white w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all duration-200 shadow-lg z-50"
+                    type="button"
+                    class="absolute left-0 md:left-[10%] top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-md hover:bg-white/20 border border-white/20 text-white w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all duration-200 shadow-lg z-50 cursor-pointer pointer-events-auto"
                     aria-label="Previous slide"
                 >
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -130,7 +131,8 @@
                 </button>
                 <button 
                     id="videoportfolio-next" 
-                    class="absolute right-0 md:right-[10%] top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-md hover:bg-white/20 border border-white/20 text-white w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all duration-200 shadow-lg z-50"
+                    type="button"
+                    class="absolute right-0 md:right-[10%] top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-md hover:bg-white/20 border border-white/20 text-white w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all duration-200 shadow-lg z-50 cursor-pointer pointer-events-auto"
                     aria-label="Next slide"
                 >
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -154,7 +156,7 @@
 </section>
 
 {{/* Load from static directory to avoid Hugo Pipes caching issues */}}
-<script defer src="{{ "js/videoportfolio.js" | relURL }}?v={{ now.Unix }}"></script>
+<script src="{{ "js/videoportfolio.js" | relURL }}?v={{ now.Unix }}"></script>
 
 <script>
 // Rotating text animation
@@ -330,7 +332,27 @@
 #videoportfolio-prev,
 #videoportfolio-next {
     z-index: 50 !important;
+    pointer-events: auto !important;
+    position: absolute !important;
+    cursor: pointer !important;
+}
+
+/* Ensure buttons are not blocked by cards */
+#videoportfolio-carousel {
+    position: relative;
     pointer-events: auto;
+}
+
+/* Ensure cards don't block button clicks */
+.videoportfolio-card {
+    pointer-events: auto;
+}
+
+/* Make sure buttons are above everything */
+#videoportfolio-prev,
+#videoportfolio-next {
+    position: absolute !important;
+    z-index: 999 !important;
 }
 
 /* Ensure "see more videos" link is clickable */
