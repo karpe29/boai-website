@@ -109,7 +109,7 @@ function setupCategoryFilters() {
         'character': 'Character',
         'product': 'Product',
         'lipsync': 'Lipsync',
-        'pdftovideo': 'PDFtoVideo'
+        'pdftovideo': 'PDF to Video'
     };
     
     // Get all unique industries from videos
@@ -266,9 +266,8 @@ function createMosaicGrid() {
     const container = document.getElementById('video-mosaic-grid');
     
     // Initialize all videos with categories (only on first load)
-    // GCP Cloud CDN URL - Using Google Cloud CDN with custom domain for faster video delivery
-    // Custom domain: video.blinkofai.io (HTTPS enabled with Google-managed SSL)
-    const GCP_BUCKET_BASE_URL = "https://video.blinkofai.io/"; // Cloud CDN endpoint
+    // GCP Cloud Storage public bucket - direct serve (no CDN)
+    const GCP_BUCKET_BASE_URL = "https://storage.googleapis.com/blinkofai-portfolio-videos-20260114/";
     
     if (allVideos.length === 0) {
         allVideos = [
@@ -307,13 +306,13 @@ function createMosaicGrid() {
                 industry: "bfsi",
                 tags: ["Supers", "VO", "Brand Visuals", "On-Brand"]
             },
-            { 
-                src: GCP_BUCKET_BASE_URL + "HDFC/HDFC%202.mp4", 
-                title: "HDFC ETF", 
-                category: "vo",
-                industry: "bfsi",
-                tags: ["Supers", "VO", "Stock", "AI Animation", "On-Brand"]
-            },
+            // { 
+            //     src: GCP_BUCKET_BASE_URL + "HDFC/HDFC%202.mp4", 
+            //     title: "HDFC ETF", 
+            //     category: "vo",
+            //     industry: "bfsi",
+            //     tags: ["Supers", "VO", "Stock", "AI Animation", "On-Brand"]
+            // },
             { 
                 src: GCP_BUCKET_BASE_URL + "ICICI/ICICI_Video_2_New_v3.mp4", 
                 title: "ICICI Orange Book", 
